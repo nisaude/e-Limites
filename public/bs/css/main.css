@@ -1,0 +1,15 @@
+
+/*========================== CONFIGURAÇÃO DO CSS PARA: ====================*/
+/*DESKTOP NO MÍNIMO 1200PX*/
+@media(min-width: 1200px){
+.zoom {display:block; width:100px; -webkit-transition-duration: .3s; border:5px solid #EEE; position:relative;}
+.zoom:hover {-webkit-transform: scale(4.00); transform:: scale(4.00); -o-transform: scale(4.00); -moz-transform: scale(4.00); -ms-transform: scale(4.00); z-index:5;}
+
+h4 {
+    display: block;
+    -webkit-margin-before: 1.33em;
+    -webkit-margin-after: 1.33em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}

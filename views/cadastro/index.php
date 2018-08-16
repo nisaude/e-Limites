@@ -14,7 +14,7 @@
 					<div class="col-sm-4">
 						<!-- CONTATOS -->
 						<div class="configdiv" style="text-align:center">
-							<h4>Cadastrando Quadra</h4>
+							<h4>Cadastrando Limite</h4>
 							<form name="frmcad" id="frmcad">													
 								<label for="nome">Nome: </label>
 								<input type="text" class="form-control" id="txtnome" name="txtnome">							
@@ -30,11 +30,7 @@
                     <!-- /.col-sm-4 -->
                     <div class="col-sm-6">
 						<div class="configdiv"> 
-							<h3>Unimar 360º</h3>
-							<h5>Faça uma &quot;tour&quot; pelo Campus da Unimar com as fotos em 360º <br></h5>
-							<a href="http://www.has360.com.br/tour/unimar/" target="_blank">Clique aqui</a><br>
-							<iframe src="http://www.has360.com.br/tour/unimar/pagina_inicial/" scrolling="no" frameborder="0" 
-							style="border:none; overflow:hidden; width:220px; height:220px;" allowTransparency="true"></iframe>
+							
 						</div>
                     </div>    
                 </div>

@@ -15,11 +15,11 @@
     <link href="<?=URL?>public/bs/css/plugins/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="<?=URL?>bs/css/main.css">
+    <link rel="stylesheet" href="<?=URL?>bs/css/main.css">
 	
-	<!--<script src="<?=URL?>public/bs/js/jquery.min.js"></script>-->
-	<script src="<?=URL?>public/bs/js/jquery-1.12.3.min.js"></script>
-	<script src="<?=URL?>public/bs/js/bootstrap.min.js"></script>
+    <!--<script src="<?=URL?>public/bs/js/jquery.min.js"></script>-->
+    <script src="<?=URL?>public/bs/js/jquery-1.12.3.min.js"></script>
+    <script src="<?=URL?>public/bs/js/bootstrap.min.js"></script>
    
     <?php 
 	Session::init();
@@ -27,10 +27,12 @@
 	$cadastro="";
 	$consulta="";
 	$contato="";
+        $cadlimite="";
 	switch($itemativo){
-		case "cadastro":$cadastro="active";break;
-		case "quadra":$consulta="active";break;
-		case "contato":$contato="active";break;
+            case "cadastro":$cadastro="active"; break;
+            case "quadra":$consulta="active"; break;
+            case "contato":$contato="active"; break;
+            case "cadlimite":$cadlimite="active"; break;
 	}
         
         if (isset($this->js)) {
@@ -59,6 +61,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?php echo(URL);?>" >e-Limites</a>
             </div>
@@ -78,6 +81,9 @@
                 <ul class="nav navbar-nav side-nav">
                     <li class="<?=$consulta?>">
                         <a href="<?php echo(URL);?>"><i class="fa fa-fw fa-dashboard"></i> Consulta Limites <i class="fa fa-fw fa-caret-down"></i></a>
+                    </li>
+                    <li class="<?=$cadlimite?>">
+                        <a href="<?=URL?>alunos/index"><i class="fa fa-fw fa-file"></i> Cadastro Limites</a>
                     </li>
 		    <li class="<?=$cadastro?>">
                         <a href="<?=URL?>cadastro/index"><i class="fa fa-fw fa-file"></i> Cadastros</a>

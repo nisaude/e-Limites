@@ -4,39 +4,35 @@ class Alunos extends Controller {
 
     function __construct() {
         parent::__construct();
-       // Auth::autentica();
+        Auth::autentica();
         $this->view->js = array('alunos/js/alunos.js');
-		$this->view->angularApp="AlunosApp";
+	$this->view->angularApp="AlunosApp";
     }
     
     function index() {
-        $this->view->title = 'Cadastro de Alunos';
-		$this->view->render('header');
+        $this->view->title = 'Cadastro de Limites';
+	$this->view->render('header');
         $this->view->render('alunos/index');
-		$this->view->render('footer');
+	$this->view->render('footer');
     }
-     function insert()
-    {
+    
+    function insert() {
         $this->model->insert();
     }
-	function lista()
-    {
+
+    function lista() {
         $this->model->lista();
     }
 	
-	function del($ra=null)
-    {
+    function del($ra=null) {
         $this->model->del($ra);
     }
-	
-	
-	function loadData($ra=null)
-    {
+
+    function loadData($ra=null) {
         $this->model->loadData($ra);
     }
 	
-	function save()
-    {
+    function save() {
         $this->model->save();
     }
 }

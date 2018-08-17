@@ -1,6 +1,6 @@
     <div id="page-wrapper">
         <div class="container-fluid">
-        <!-- Cabeçalho da página -->
+            <!-- Cabeçalho da página -->
             <div class="row">
                 <div class="col-lg-12">
                 <h1 class="page-header">
@@ -9,8 +9,7 @@
                 </div>
             </div>
 			
-            <!-- PAINEIS --> 
-            <div class="row">  <!--<div id="listaquadras" class="row"> -->
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="col-sm-3"></div>
                         <div class="col-sm-6">

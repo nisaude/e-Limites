@@ -31,7 +31,6 @@
 		case "cadastro":$cadastro="active";break;
 		case "quadra":$consulta="active";break;
 		case "contato":$contato="active";break;
-		
 	}
         
         if (isset($this->js)) {
@@ -66,7 +65,7 @@
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Nome_Aluno <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Usuário <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="<?=URL?>login"><i class="fa fa-fw fa-power-off"></i> Sair</a>

@@ -15,14 +15,14 @@
     <link href="<?=URL?>public/bs/css/plugins/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="<?=URL?>bs/css/main.css">
+    <link rel="stylesheet" href="<?=URL?>bs/css/main.css">
 	
-	<!--<script src="<?=URL?>public/bs/js/jquery.min.js"></script>-->
-	<script src="<?=URL?>public/bs/js/jquery-1.12.3.min.js"></script>
-	<script src="<?=URL?>public/bs/js/bootstrap.min.js"></script>
+    <!--<script src="<?=URL?>public/bs/js/jquery.min.js"></script>-->
+    <script src="<?=URL?>public/bs/js/jquery-1.12.3.min.js"></script>
+    <script src="<?=URL?>public/bs/js/bootstrap.min.js"></script>
 	
     
-	<!-- Morris Charts JavaScript 
+    <!-- Morris Charts JavaScript 
     <script src="<?=URL?>public/bs/js/morris/raphael.min.js"></script>
     <script src="<?=URL?>public/bs/js/morris/morris.min.js"></script>
     <script src="<?=URL?>public/bs/js/morris/morris-data.js"></script>-->
@@ -39,27 +39,22 @@
 		case "contato":$contato="active";break;
 		
 	}
-    if (isset($this->js)) 
-    {
-        foreach ($this->js as $js)
-        {
-            echo '<script type="text/javascript" src="'.URL.$js.'"></script>';
-			echo("\n");
+        if (isset($this->js)) {
+            foreach ($this->js as $js) {
+                echo '<script type="text/javascript" src="'.URL.$js.'"></script>';
+		echo("\n");
+            }
         }
-    }
 	
-	 if (isset($this->css)) 
-    {
-        foreach ($this->css as $css)
-        {
-            echo '<link rel="stylesheet" href="'.URL.$css.'">';
-			echo("\n");
+	if (isset($this->css)) {
+            foreach ($this->css as $css) {
+                echo '<link rel="stylesheet" href="'.URL.$css.'">';
+		echo("\n");
+            }
         }
-    }
-	
     ?>
-  </head>
-  <body>
+</head>
+<body>
     <div id="wrapper">
       
        

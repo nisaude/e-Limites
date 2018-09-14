@@ -24,15 +24,13 @@
     <?php 
 	Session::init();
 	$itemativo=Session::get("itemativo");
-	$cadastro="";
 	$consulta="";
-	$contato="";
-        $cadlimite="";
+        $cadastro="";
+	$contatos="";
 	switch($itemativo){
+            case "consulta":$consulta="active"; break;
             case "cadastro":$cadastro="active"; break;
-            case "quadra":$consulta="active"; break;
-            case "contato":$contato="active"; break;
-            case "cadlimite":$cadlimite="active"; break;
+            case "contatos":$contatos="active"; break;
 	}
         
         if (isset($this->js)) {
@@ -80,15 +78,12 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="<?=$consulta?>">
-                        <a href="<?php echo(URL);?>"><i class="fa fa-fw fa-dashboard"></i> Consulta Limites <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="<?php echo(URL);?>"><i class="fa fa-fw fa-dashboard"></i> Consultar Limites <i class="fa fa-fw fa-caret-down"></i></a>
                     </li>
-                    <li class="<?=$cadlimite?>">
-                        <a href="<?=URL?>alunos/index"><i class="fa fa-fw fa-file"></i> Cadastro Limites</a>
+                    <li class="<?=$cadastro?>">
+                        <a href="<?=URL?>cadastro/index"><i class="fa fa-fw fa-file"></i> Cadastrar Limites</a>
                     </li>
-		    <li class="<?=$cadastro?>">
-                        <a href="<?=URL?>cadastro/index"><i class="fa fa-fw fa-file"></i> Cadastros</a>
-                    </li>
-                    <li class="<?=$contato?>">
+		    <li class="<?=$contatos?>">
                         <a href="<?=URL?>contato/index"><i class="fa fa-fw fa-file"></i> Contatos</a>
                     </li>
                 </ul>

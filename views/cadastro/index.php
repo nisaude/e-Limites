@@ -50,7 +50,6 @@
                                                 <label class="col-sm-2 col-form-label">Núm. Final:</label>
                                                 <div class="col-sm-2">
                                                     <input type="text" class="form-control" id="txtNumFim" name="txtNumFim" placeholder="Final" maxlength="6" ng-model="aluno.End" ng-model-options="{ getterSetter: true }" >
-                                                    {{aluno.End}} {{limite.NumIni}}
                                                 </div>
                                             </div>
                                         </div>

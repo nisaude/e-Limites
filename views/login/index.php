@@ -9,13 +9,13 @@
 				<h1>Acesso ao e-Limites</h1>
 				<div class="form-group">
                                     <label for="usuario">Usuário:</label>
-                                    <input type="text" class="form-control" name="txtusuario" id="txtusuario">
+                                    <input type="text" class="form-control" name="txtUsuario" id="txtusuario">
 				</div>
 				<div class="form-group">
                                     <label for="senha">Senha:</label>
-                                    <input type="password" class="form-control" name="txtsenha" id="txtsenha">
+                                    <input type="password" class="form-control" name="txtSenha" id="txtsenha">
 				</div>
-                                    <button type="button" class="btn btn-default" name="btnok" id="btnok">Entrar</button>
+                                    <button type="button" class="btn btn-default" name="btnOk" id="btnok">Entrar</button>
 				</td>
                             </tr>
 			</table>

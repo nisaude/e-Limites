@@ -20,7 +20,7 @@
     <!--<script src="<?=URL?>public/bs/js/jquery.min.js"></script>-->
     <script src="<?=URL?>public/bs/js/jquery-1.12.3.min.js"></script>
     <script src="<?=URL?>public/bs/js/bootstrap.min.js"></script>
-   
+       
     <?php 
 	Session::init();
 	$itemativo=Session::get("itemativo");

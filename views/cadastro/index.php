@@ -9,19 +9,23 @@
                 </div>
             </div>
             
+           
+            
+    <div class="recebeDados"></div>
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="col-sm-3"></div>
                         <div class="col-sm-6">
                             <div class="configdiv" style="text-align:left">
-                                <div ng-controller="CadAlunosController">
-                                    <form name="frmCadAlu" id="frmCadAlu" method="post" role="form">
+                                <div ng-controller="CadLimitesController">
+                                    <form name="frmCadLimite" id="frmCadLimite" method="post" role="form" action="">
                                         <!-- CEP -->
                                         <div class="row">
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">CEP: </label>
+                                                <label class="col-sm-2 col-form-label">CEP:</label>
                                                 <div class="col-sm-4">
-                                                    <input type="text" class="form-control" id="txtCadCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="8" ng-readonly="editando" ng-model="aluno.Ra" ng-model-options="{ getterSetter: true }">
+                                                    <input type="text" class="form-control" id="txtCadCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10" ng-readonly="editando" ng-model="limite.CEP" ng-model-options="{ getterSetter: true }">
                                                 </div>
                                             </div>
                                         </div>
@@ -30,7 +34,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Logradouro:</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="txtLogradouro" name="txtLogradouro" placeholder="Logradouro..." maxlength="50" ng-model="aluno.Nome" ng-model-options="{ getterSetter: true }" >
+                                                    <input type="text" class="form-control" id="txtLogradouro" name="txtLogradouro" placeholder="Logradouro..." maxlength="50" ng-model="limite.Logradouro" ng-model-options="{ getterSetter: true }" >
                                                 </div>
                                             </div>
                                         </div>
@@ -39,13 +43,14 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Núm. Incial:</label>
                                                 <div class="col-sm-2">
-                                                    <input type="text" class="form-control" id="txtNumIni" name="txtNumIni" placeholder="Inicial" maxlength="6" ng-model="aluno.End" ng-model-options="{ getterSetter: true }" >
+                                                    <input type="text" class="form-control" id="txtNumIni" name="txtNumIni" placeholder="Inicial" maxlength="6" ng-model="limite.NumIni" ng-model-options="{ getterSetter: true }" >
                                                 </div>
                                                 <div class="col-sm-2">
                                                 </div>
                                                 <label class="col-sm-2 col-form-label">Núm. Final:</label>
                                                 <div class="col-sm-2">
                                                     <input type="text" class="form-control" id="txtNumFim" name="txtNumFim" placeholder="Final" maxlength="6" ng-model="aluno.End" ng-model-options="{ getterSetter: true }" >
+                                                    {{aluno.End}} {{limite.NumIni}}
                                                 </div>
                                             </div>
                                         </div>
@@ -64,15 +69,15 @@
                                                 <label class="col-sm-2 col-form-label">Unidade:</label>
                                                 <div class="col-sm-5">                                                    
                                                     <select data-toggle="dropdown" class="form-control" aria-haspopup="true" aria-expanded="false">
-                                                        <option value="0">Selecione a Unidade...</option>
-                                                        <option value="1">USF Aeroporto</option>
-                                                        <option value="2">USF Altaneira</option>
-                                                        <option value="3">USF Aniz Badra</option>
-                                                        <option value="4">USF Argolo Ferrão</option>
+                                                        <option>Selecione a Unidade...</option>
+                                                        <option>USF Aeroporto</option>
+                                                        <option>USF Altaneira</option>
+                                                        <option>USF Aniz Badra</option>
+                                                        <option>USF Argolo Ferrão</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>  
+                                        </div> 
                                         <!-- NÚMEROS INICIAL E FINAL -->
                                         <div class="row">
                                             <div class="form-group row">
@@ -92,16 +97,14 @@
                                         <br>
                                         <div class="col-sm-2"></div>
                                         <div id="botaoCad" ng-show="cadastrando">
-                                            <button type="button" id="btnSalvar" name="btnSalvar" class="btn btn-success" ng-click="gravarNovo(aluno)">
+                                            <button type="submit" id="btnSalvar" name="btnSalvar" class="btn btn-success" ng-click="gravarNovo(aluno)">
                                                 Salvar
                                             </button>
                                            
                                             <button type="reset" id="btnCancel" name="btnCancel" class="btn btn-danger" ng-click="gravarDados(aluno)">
                                                 Cancelar
                                             </button>
-                                             
                                         </div>
-                                        
                                     </form>
                                 </div>
                             </div>

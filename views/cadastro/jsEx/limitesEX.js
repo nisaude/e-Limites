@@ -1,45 +1,45 @@
-var app = angular.module('AlunosApp', []);
+var app = angular.module('LimitesApp', []);
 
-app.controller('CadAlunosController', function($scope,$http){
+app.controller('CadLimitesController', function($scope,$http){
 
     $scope.cadastrando = true;	
-    listaAlunos();
+    //listaLimites();
  
-    function listaAlunos(){
-        $http.post("alunos/lista").success(function(data){
-            $scope.resultAlunos= data;
+    function listaLimites(){
+        $http.post("limites/lista").success(function(data){
+            $scope.resultLimites= data;
         });
      };
  
-    $scope.gravarNovo = function (aluno) {
+    $scope.gravarNovo = function (limite) {
 
         var config = {
             params: {
-                aluno: aluno
+                limite: limite
             }
         };
 
-        $http.post("alunos/insert", aluno)
+        $http.post("limites/insert", limite)
         .success(function (data, status, headers, config) {
             $scope.result = data;
-            listaAlunos();
+            listaLimites();
         })
         .error(function (data, status, headers, config) {
             $scope.result = "ERRO";
         });
     };
 	
-    $scope.editarAluno = function (ra) {
+    $scope.editarLimite = function (ra) {
 
         $scope.editando = true;
         $scope.cadastrando = false;
 
         var config = {};
-        $http.post("alunos/loadData/"+ra)
+        $http.post("limites/loadData/"+ra)
         .success(function (data, status, headers, config) {
 
             //mudei aqui - veja a observação abaixo.
-            $scope.aluno=data[0];
+            $scope.limite=data[0];
 
             /* Ao inves de carregar campo a campo carrega todo o model do scopo
             quando carrego campo a campo utilizando o angular.copy 
@@ -67,10 +67,10 @@ app.controller('CadAlunosController', function($scope,$http){
         "Ra":document.getElementById("txtRa").value,"Nome":document.getElementById("txtNome").value,"End": document.getElementById("txtEnd").value
     }*/
         var config = {};
-	$http.post("alunos/save", dados)
+	$http.post("limites/save", dados)
         .success(function (data, status, headers, config) {
         $scope.result = data;
-            listaAlunos();
+            listaLimites();
             limpaForm();
         })
         .error(function (data, status, headers, config) {
@@ -80,12 +80,12 @@ app.controller('CadAlunosController', function($scope,$http){
 	
     $scope.removerAluno = function (ra) {
 		
-	if(confirm("Deseja Excluir o Aluno?")){		
+	if(confirm("Deseja Excluir o Limite?")){		
             var config = {};
-            $http.post("alunos/del/"+ra)
+            $http.post("limites/del/"+ra)
             .success(function (data, status, headers, config) {
 		$scope.result = data;
-		listaAlunos();			  
+		listaLimites();			  
             })
             .error(function (data, status, headers, config) {
                 $scope.result = "ERRO";

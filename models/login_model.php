@@ -6,22 +6,19 @@ class Login_Model extends Model {
         parent::__construct();
     }
 	
-	function login(){
+    function login(){
 		
-            $usuario=$_POST["txtusuario"];
-            $senha=$_POST["txtsenha"];
+        $usuario=$_POST["txtUsuario"];
+        $senha=$_POST["txtSenha"];
+	
+        $result=$this->db->select("select id,nome from usuario where nome=:par_nome and senha=sha2(:par_senha,256)",array(":par_nome"=>$usuario,":par_senha"=>$senha));
 		
-            $result=$this->db->select("select id,nome from usuario where nome=:par_nome and senha=sha2(:par_senha,256)",array(":par_nome"=>$usuario,":par_senha"=>$senha));
-		
-            if(count($result)>0){
-		Session::init();
-		Session::set("logado",true);
-		echo("1");			
-            } else {
-		echo("0");
-            }	
-	}
-	
-	
-	
+        if(count($result)>0){
+            Session::init();
+            Session::set("logado",true);
+            echo("1");			
+        } else {
+            echo("0");
+        }	
+    }	
 }

@@ -8,7 +8,6 @@ class Controller {
     }
     
     /**
-     * 
      * @param string $name nome do model
      * @param string $path local dos models
      */

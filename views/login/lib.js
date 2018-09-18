@@ -4,7 +4,7 @@ $(document).ready(function(){
         $.post("/app/login/login",dados).done(function(retorno){
             console.log(retorno);
             if(retorno=="1"){ 
-                alert("Seja bem-vindo!");
+                
                 window.location='/app/index';
             }else{
                 alert("Tente novamente!");

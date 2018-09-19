@@ -7,6 +7,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><?=$this->title;?></title>
+    
+    <!-- favicon -->
+    <link rel="shortcut icon" href="public/bs/img/favicon.ico" />
+    
     <!-- Bootstrap Core CSS -->
     <link href="<?=URL?>public/bs/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -14,8 +18,13 @@
     <!-- Morris Charts CSS -->
     <link href="<?=URL?>public/bs/css/plugins/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
+    <link href="<?=URL?>bs/css/main.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<?=URL?>bs/css/main.css">
+    
+    <!-- Icones -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="<?=URL?>fontawesome-free-5.3.1-web/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Lista de icones: https://fontawesome.com/icons?d=gallery&m=free -->
 	
     <!--<script src="<?=URL?>public/bs/js/jquery.min.js"></script>-->
     <script src="<?=URL?>public/bs/js/jquery-1.12.3.min.js"></script>
@@ -25,11 +34,13 @@
 	Session::init();
 	$itemativo=Session::get("itemativo");
 	$consulta="";
-        $cadastro="";
+        $cadLimite="";
+        $cadusuario="";
 	$contatos="";
 	switch($itemativo){
             case "consulta":$consulta="active"; break;
-            case "cadastro":$cadastro="active"; break;
+            case "cadLimite":$cadLimite="active"; break;
+            case "cadusuario":$cadusuario="active";break;
             case "contatos":$contatos="active"; break;
 	}
         
@@ -57,19 +68,16 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                </button>    
                 <a class="navbar-brand" href="<?php echo(URL);?>" >e-Limites</a>
             </div>
-            <!-- Top Menu Items -->
+            <!-- Top Menu Itens -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Usuário <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="<?=URL?>login"><i class="fa fa-fw fa-power-off"></i> Sair</a>
+                            <a href="<?=URL?>login"><i class="fa fa-fw fa-power-off"></i> Sair </a>
                         </li>
                     </ul>
                 </li>
@@ -78,13 +86,16 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="<?=$consulta?>">
-                        <a href="<?php echo(URL);?>"><i class="fa fa-fw fa-dashboard"></i> Consultar Limites <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="<?php echo(URL);?>"><i class="fas fa-search"></i> Consultar Limites</a>
                     </li>
-                    <li class="<?=$cadastro?>">
-                        <a href="<?=URL?>cadastro/index"><i class="fa fa-fw fa-file"></i> Cadastrar Limites</a>
-                    </li>
+                    <li class="<?=$cadLimite?>">
+                        <a href="<?=URL?>cadLimite/index"><i class="fas fa-map-marker-alt"></i> Cadastrar Limites</a>
+                    </li>   
+                    <li class="<?=$cadusuario?>">
+                        <a href="<?=URL?>cadUsuario/index"><i class="fa fa-user"></i> Cadastrar Usuário</a>
+                    </li>  
 		    <li class="<?=$contatos?>">
-                        <a href="<?=URL?>contato/index"><i class="fa fa-fw fa-file"></i> Contatos</a>
+                        <a href="<?=URL?>contato/index"><i class="fas fa-phone"></i> Contatos</a>
                     </li>
                 </ul>
             </div>

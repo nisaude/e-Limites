@@ -11,7 +11,7 @@ class Login extends Controller {
     function index() {
         Session::init();
 	Session::destroy();
-        $this->view->title = 'controller Login';
+        $this->view->title = 'e-Limites - Login';
 	$this->view->render('login/header');
         $this->view->render('login/index');
 	$this->view->render('login/footer');

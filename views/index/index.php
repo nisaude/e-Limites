@@ -33,7 +33,8 @@
                                     <div class="col-sm-2"></div>
                                     <div class="form-group row">
                                         <div class="col-sm-2">
-                                            <button type="button" id="btnConsulta" name="btnConsulta" class="btn btn-success" >Consultar</button>	
+                                            <button type="button" id="btnConsulta" name="btnConsulta" class="btn btn-success" ><i class="fas fa-search"></i>
+                                                Consultar</button>	
                                         </div>
                                     </div>
                                     <br>

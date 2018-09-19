@@ -4,7 +4,7 @@
                 <div class="row"> <br>
                     <div class="text-muted">
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                            <p><span class="glyphicon glyphicon-circle-arrow-right"> e-Limites - v1.0.918</span></p>
+                            <p><span class="col-xs-12 col-sm-12"><i class="fas fa-map-marker-alt"></i> e-Limites - v1.0.918</span></p>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                             <p>&REG; Copyright 2018 by Diego Fassion</p>

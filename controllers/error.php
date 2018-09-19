@@ -7,7 +7,7 @@ class Error extends Controller {
     }
     
     function index() {
-        $this->view->title = 'Controller Erro';
+        $this->view->title = 'Erro Controller';
 	$this->view->render('header');
         $this->view->render('error/index');
 	$this->view->render('footer');

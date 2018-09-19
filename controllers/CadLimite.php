@@ -11,7 +11,7 @@ class CadLimite extends Controller{
     
     function index() {
         Session::init();
-	Session::set("itemativo","cadlimite");
+	Session::set("itemativo","cadLimites");
         $this->view->title = 'e-Limites - Cadastrar Limite';
 	$this->view->render('header');
         $this->view->render('cadLimite/index');

@@ -34,13 +34,13 @@
 	Session::init();
 	$itemativo=Session::get("itemativo");
 	$consulta="";
-        $cadLimite="";
-        $cadusuario="";
+        $cadLimites="";
+        $cadUsuarios="";
 	$contatos="";
 	switch($itemativo){
             case "consulta":$consulta="active"; break;
-            case "cadLimite":$cadLimite="active"; break;
-            case "cadusuario":$cadusuario="active";break;
+            case "cadLimites":$cadLimites="active"; break;
+            case "cadUsuarios":$cadUsuarios="active";break;
             case "contatos":$contatos="active"; break;
 	}
         
@@ -88,10 +88,10 @@
                     <li class="<?=$consulta?>">
                         <a href="<?php echo(URL);?>"><i class="fas fa-search"></i> Consultar Limites</a>
                     </li>
-                    <li class="<?=$cadLimite?>">
+                    <li class="<?=$cadLimites?>">
                         <a href="<?=URL?>cadLimite/index"><i class="fas fa-map-marker-alt"></i> Cadastrar Limites</a>
                     </li>   
-                    <li class="<?=$cadusuario?>">
+                    <li class="<?=$cadUsuarios?>">
                         <a href="<?=URL?>cadUsuario/index"><i class="fa fa-user"></i> Cadastrar Usuário</a>
                     </li>  
 		    <li class="<?=$contatos?>">

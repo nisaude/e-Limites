@@ -21,7 +21,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">CEP:</label>
                                                 <div class="col-sm-4">
-                                                    <input type="text" class="form-control" id="txtCadCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10" ng-readonly="editando" ng-model="limite.Cep" ng-model-options="{ getterSetter: true }">
+                                                    <input type="text" class="form-control" id="txtCadCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10" ng-readonly="editando" ng-model="limite.Cep" ng-model-options="{ getterSetter: true }" >
                                                 </div>
                                             </div>
                                         </div>

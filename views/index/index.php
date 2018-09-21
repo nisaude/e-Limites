@@ -19,14 +19,14 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">CEP: </label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="txtConsCEP" placeholder="Insira o CEP...">
+                                            <input type="text" class="form-control" id="txtConsCEP" placeholder="Insira o CEP..." value="">
                                         </div>
                                     </div>
                                     <!-- LOGRADOURO -->
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Logradouro: </label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="txtConsLog" placeholder="Insira o logradouro...">
+                                            <input type="text" class="form-control" id="txtConsLog" placeholder="Insira o logradouro..." value="">
                                         </div>
                                     </div>
                                     <!-- BOTÃO CONSULTAR -->

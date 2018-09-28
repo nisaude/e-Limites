@@ -16,7 +16,7 @@ class Login_Model extends Model {
         if(count($result)>0){
             Session::init();
             Session::set("logado",true);
-            echo("1");			
+            echo("1");	
         } else {
             echo("0");
         }	

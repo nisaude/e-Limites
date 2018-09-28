@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html ng-app="LimitesApp" lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><?=$this->title;?></title>
+    
+    <!-- favicon -->
+    <link rel="shortcut icon" href="public/bs/img/favicon.ico" />
+      
     <!-- Bootstrap Core CSS -->
     <link href="<?=URL?>public/bs/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -14,14 +18,18 @@
     <!-- Morris Charts CSS -->
     <link href="<?=URL?>public/bs/css/plugins/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
+    <link href="<?=URL?>bs/css/main.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<?=URL?>bs/css/main.css">
 	
+    <!-- Icones -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="<?=URL?>fontawesome-free-5.3.1-web/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Lista de icones: https://fontawesome.com/icons?d=gallery&m=free -->
+    
     <!--<script src="<?=URL?>public/bs/js/jquery.min.js"></script>-->
     <script src="<?=URL?>public/bs/js/jquery-1.12.3.min.js"></script>
     <script src="<?=URL?>public/bs/js/bootstrap.min.js"></script>
 	
-    
     <!-- Morris Charts JavaScript 
     <script src="<?=URL?>public/bs/js/morris/raphael.min.js"></script>
     <script src="<?=URL?>public/bs/js/morris/morris.min.js"></script>

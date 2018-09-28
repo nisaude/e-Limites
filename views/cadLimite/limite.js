@@ -102,7 +102,7 @@ app.controller('CadLimitesController', function($scope,$http){
     function limpaForm() {
 		
         var original = {};
-	$scope.aluno = angular.copy(original);	
+	$scope.limite = angular.copy(original);	
 	$scope.frmCadAlu.$setPristine();
 	$scope.editando = false;
 	$scope.cadastrando = true;	

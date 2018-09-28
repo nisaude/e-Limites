@@ -15,6 +15,8 @@
                         <div class="col-sm-6">
                             <div class="configdiv">
                                 <div ng-controller="CadUsuarioController">
+                                    
+                                    <div>Nome da Lista: {{ nomeListaUsuarios }}</div>
                                     <form name="frmCadUsuario" id="frmCadUsuario" method="post" role="form">
                                         <!-- NOME -->
                                         <div class="row">
@@ -76,7 +78,14 @@
                                                         <td>{{d.id}}</td>
                                                         <td>{{d.nome}}</td>
                                                         <td>{{d.senha}}</td>
-                                                        
+                                                        <td><a href="#" ng-click="editarUsuario(d.id)">
+                                                            <span class="glyphicon glyphicon-edit"></span>
+							</a>
+							
+							<a href="#" ng-click="removerUsuario(d.id)">
+                                                            <span class="glyphicon glyphicon-trash"></span>
+							</a>	
+						</td>
                                                     </tr>
                                                 </tbody>
                                             </table>

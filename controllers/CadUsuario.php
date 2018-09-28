@@ -5,7 +5,7 @@ class CadUsuario extends Controller{
     function __construct() {
         parent::__construct();
         
-        $this->view->js = array('cadUsuario/usuario.js');//Inicia o javascript
+        $this->view->js = array('views/cadUsuario/usuario.js');//Inicia o javascript
         $this->view->angularApp = "LimitesApp";
     }
     
@@ -18,11 +18,23 @@ class CadUsuario extends Controller{
         $this->view->render('footer');
     }
     
-    function insert(){
+    function insert() {
         $this->model->insert();
     }
     
-    function lista(){
+    function lista() {
         $this->model->lista();
+    }
+	
+    function del($ra=null) {
+        $this->model->del($ra);
+    }
+	
+    function loadData($ra=null) {
+        $this->model->loadData($ra);
+    }
+	
+    function save() {
+        $this->model->save();
     }
 }

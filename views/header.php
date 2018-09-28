@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html ng-app="LimitesApp" lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
     
     <!-- favicon -->
     <link rel="shortcut icon" href="public/bs/img/favicon.ico" />
-    
+       
     <!-- Bootstrap Core CSS -->
     <link href="<?=URL?>public/bs/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -29,6 +29,7 @@
     <!--<script src="<?=URL?>public/bs/js/jquery.min.js"></script>-->
     <script src="<?=URL?>public/bs/js/jquery-1.12.3.min.js"></script>
     <script src="<?=URL?>public/bs/js/bootstrap.min.js"></script>
+    <script src="<?=URL?>public/bs/js/angular.min.js"></script>
        
     <?php 
 	Session::init();

@@ -16,12 +16,17 @@
                             <div class="configdiv" style="text-align:left">
                                 <div ng-controller="CadLimitesController">
                                     <form name="frmCadLimite" id="frmCadLimite" method="post" role="form">
-                                        <!-- CEP -->
+                                        <!-- CEP / IBGE -->
                                         <div class="row">
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">CEP:</label>
                                                 <div class="col-sm-4">
-                                                    <input type="text" class="form-control" id="txtCadCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10" ng-readonly="editando" ng-model="limite.Cep" ng-model-options="{ getterSetter: true }" >
+                                                    <input type="text" class="form-control" id="txtCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10" onblur="pesquisaCep(txtCEP.value)" ng-readonly="editando" ng-model="limite.Cep" ng-model-options="{ getterSetter: true }" >
+                                                </div>
+                                                <div class="col-sm-1"></div>
+                                                <label class="col-sm-1 col-form-label">IBGE:</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control" id="txtIBGE" name="txtIBGE" placeholder="IBGE..." maxlength="6" ng-model="limite.IBGE" ng-model-options="{ getterSetter: true }" >
                                                 </div>
                                             </div>
                                         </div>
@@ -58,7 +63,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- UNIDADES DE SAÚDE -->
+                                        <!-- CIDADE -->
+                                        <div class="row">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Cidade:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txtCidade" name="txtCidade" placeholder="Cidade..." maxlength="50" ng-model="limite.Cidade" ng-model-options="{ getterSetter: true }" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- UNIDADES DE SAÚDE / UF -->
                                         <div class="row">
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Unidade:</label>
@@ -70,6 +84,10 @@
                                                         <option>USF Aniz Badra</option>
                                                         <option>USF Argolo Ferrão</option>
                                                     </select>
+                                                </div>
+                                                <label class="col-sm-1 col-form-label">UF:</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control" id="txtUF" name="txtUF" placeholder="UF..." maxlength="6" ng-model="limite.UF" ng-model-options="{ getterSetter: true }" >
                                                 </div>
                                             </div>
                                         </div> 
@@ -96,7 +114,7 @@
                                                 Salvar
                                             </button>
                                            
-                                            <button type="reset" id="btnCancel" name="btnCancel" class="btn btn-danger" ng-click="resetForm()"><i class="fas fa-times"></i>
+                                            <button type="reset" id="btncancel" name="btnCancel" class="btn btn-danger"><i class="fas fa-times"></i>
                                                 Cancelar
                                             </button>
                                         </div>

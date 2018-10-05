@@ -5,6 +5,7 @@ class CadUsuario extends Controller{
     function __construct() {
         parent::__construct();
         
+        
         $this->view->js = array('views/cadUsuario/usuario.js');//Inicia o javascript
         $this->view->angularApp = "LimitesApp";
     }
@@ -12,7 +13,7 @@ class CadUsuario extends Controller{
     function index() {
         Session::init();
         Session::set("itemativo","cadUsuarios");
-        $this->view->title = 'e-Limites - Cadastrar Usuario';
+        $this->view->title = 'e-Limites - Cadastrar Usuário';
         $this->view->render('header');
         $this->view->render('cadUsuario/index');
         $this->view->render('footer');

@@ -2,19 +2,25 @@ var app = angular.module('LimitesApp', []);
 
 app.controller('CadUsuarioController', function($scope,$http){
     
-    listaUsuarios();
+    //listaUsuarios();
     $scope.cadastrando = true;
     
-    $scope.nomeListaUsuarios = 'Lista de Pessoas';
-/*    //Vetor vazio
+    $scope.frmInclusao = {
+                            "id": "",
+                            "nome": "",
+                            "senha": ""
+			 };
+    
+       
+    //Vetor vazio
     $scope.listaUsuarios = [];
 	
-    //Objeto de Pessoa1
+    //Objeto de Usuario1
     $scope.usuario1 = { "id": "170017",
             	       "nome": "Diego",
 		       "senha": "123"
                      };
-    //Objeto de Pessoa2
+    //Objeto de Usuario2
     $scope.usuario2 = { "id": "171717",
             	       "nome": "Diego Fassion",
 		       "senha": "123"
@@ -22,7 +28,37 @@ app.controller('CadUsuarioController', function($scope,$http){
     //push - Pega o item que você indica e insere no final do vetor
     $scope.listaUsuarios.push($scope.usuario1); 
     $scope.listaUsuarios.push($scope.usuario2); 
-    */
+    
+    $scope.incluirPessoa = function(){
+        //Vetor para incluir uma nova pessoa
+        
+        $scope.listaUsuarios.push({ //Dessa forma o Angular captura o conteúdo do html através do ng-model
+				id: $scope.frmInclusao.Id, 
+				nome: $scope.frmInclusao.Nome, 
+				senha: $scope.frmInclusao.Senha 
+    			    });
+	//Limpar Campos
+	$scope.frmInclusao = {
+				"id": "",
+				"nome": "",
+				"senha": ""
+			     };
+    }
+    
+    $scope.excluirUsuario = function(sId){
+
+	var listaUsuariosNova = $scope.listaUsuarios.filter( //filter recebe verdadeiro ou falso
+                                function(pessoa){ //pessoa é o item do array
+                                    pessoa.id != sId
+                                    return pessoa.id != sId; //Retorna true ou false
+				});
+
+        $scope.listaUsuarios = listaUsuariosNova;
+    }
+    
+    
+    
+    
     
     
     
@@ -31,11 +67,6 @@ app.controller('CadUsuarioController', function($scope,$http){
             $scope.resultUsuarios = data;
 	});
     };
-    
-    
-    
-    
-    
     
     $scope.editarAluno = function (id){
 		
@@ -67,6 +98,7 @@ app.controller('CadUsuarioController', function($scope,$http){
             $scope.result = "ERRO";
         });
     };
+    
     
     
     

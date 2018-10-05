@@ -6,7 +6,8 @@ class CadLimite extends Controller{
         parent::__construct();
         //Auth::autentica();
         $this->view->js = array('views/cadLimite/limite.js');
-	$this->view->angularApp="LimitesApp";
+	//$this->view->js = array('views/cadLimite/buscaViaCep.js');
+        $this->view->angularApp="LimitesApp";
     }
     
     function index() {
@@ -18,23 +19,23 @@ class CadLimite extends Controller{
 	$this->view->render('footer');
     }
     
-    function insert(){
+    function insert() {
         $this->model->insert();
     }
     
-    function lista(){
+    function lista() {
         $this->model->lista();
     }
 	
-    function del($ra=null){
+    function del($ra=null) {
         $this->model->del($ra);
     }
 	
-    function loadData($ra=null){
+    function loadData($ra=null) {
         $this->model->loadData($ra);
     }
 	
-    function save(){
+    function save() {
         $this->model->save();
     }
 }

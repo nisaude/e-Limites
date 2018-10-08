@@ -5,9 +5,9 @@ class CadUsuario extends Controller{
     function __construct() {
         parent::__construct();
         
-        
+        Auth::autentica();
         $this->view->js = array('views/cadUsuario/usuario.js');//Inicia o javascript
-        $this->view->angularApp = "LimitesApp";
+        //$this->view->angularApp = "LimitesApp";
     }
     
     function index() {
@@ -31,8 +31,8 @@ class CadUsuario extends Controller{
         $this->model->del($ra);
     }
 	
-    function loadData($ra=null) {
-        $this->model->loadData($ra);
+    function loadData() {
+        $this->model->loadData();
     }
 	
     function save() {

@@ -1,11 +1,14 @@
+/*
 $(document).ready(function(){
     // Evento onclick para ir para criar login -->
     $(document).on("click","#btncancel",function(){
         alert("Teste!");
         window.location='/cadLimite/index';
+    
+    
     });
     
-    
+  */  
     
 
     function mascara(t, mask){
@@ -65,4 +68,4 @@ $(document).ready(function(){
     
     
     
-});
+//});

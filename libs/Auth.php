@@ -3,15 +3,16 @@
 class Auth{
     
     public static function autentica(){
-        
+        error_reporting(E_ALL & ~E_NOTICE);
         @session_start();
+       
         
-        $logged = $_SESSION['deslogado'];
-        //$logged = $_SESSION['logado'];
+       // $logged = $_SESSION['deslogado'];
+        $logged = $_SESSION['logado'];
         //if ($logged == false) {
-        if ($logged == true) {
+        if ($logged!=true) {
             session_destroy();
-            header('Location: login/');
+            header("Location: ".URL.'login/');
             exit;
         }
     }

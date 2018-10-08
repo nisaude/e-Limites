@@ -14,7 +14,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="<?=URL?>public/bs/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<?=URL?>public/bs/css/sb-admin.css" rel="stylesheet">
+    
     <!-- Morris Charts CSS -->
     <link href="<?=URL?>public/bs/css/plugins/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->

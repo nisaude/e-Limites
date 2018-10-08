@@ -7,7 +7,7 @@ class CadUsuario_Model extends Model {
     }
     
     public function lista() {  
-        $result=$this->db->select('select id,nome,senha from angular.usuario order by nome');
+        $result=$this->db->select('select id,nome from usuario order by nome');
 		
 	$result = json_encode($result);
 		
@@ -15,15 +15,26 @@ class CadUsuario_Model extends Model {
     }
 
     public function insert() {
-		
-		/*
-		 php://input --> permite ler os dados do corpo da requisicao http
-		 No angular os dados são passados como json no corpo do http
-		*/
-	$aluno = json_decode(file_get_contents('php://input'),true);
-	           
-        $this->db->insert('angular.aluno', array('ra' =>$aluno["Ra"],'nome'=>$aluno["Nome"],'endereco'=>$aluno["End"]));
-        echo "Dados Inseridos com Sucesso";
+	
+        $id=$_POST["txtCadUsuarioId"];
+        $nome=$_POST["txtCadUsuarioNome"];
+        $senha=$_POST["txtCadUsuarioSenha"];
+        
+        $senha=hash("sha256",$senha);
+	
+        
+       $result=$this->db->select('select id,nome from usuario where id=:par_id',array(":par_id"=>$id));
+       
+       if(count($result)==0){
+        
+            $dados=array("id"=>$id,"nome"=>$nome,"senha"=>$senha);
+
+            $this->db->insert('usuario', $dados);
+            echo "Dados Inseridos com Sucesso";
+       }
+       else{
+           echo("Usuario [$id] Já cadastrado");
+       }
     }
 	
     public function del($ra=null) {  
@@ -34,13 +45,12 @@ class CadUsuario_Model extends Model {
 	echo "Aluno Removido com Sucesso!";
     }
 	
-    public function loadData($id=null) {  
+    public function loadData() {  
 		
-	$id=(int)$id;
+	$id=$_POST["idusuario"];
 	if($id!=0){	
-            //alterei aqui tambem para retornar o nome dos 
-            //campos de acordo com os nomes definidos no ng-model
-            $result=$this->db->select('select id as Ra,nome as Nome,endereco as End from angular.aluno where ra=:ra',array(":ra"=>$ra));
+           
+            $result=$this->db->select('select id,nome from usuario where id=:par_id',array(":par_id"=>$id));
             $result = json_encode($result);
             echo($result);
 	}

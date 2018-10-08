@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="LimitesApp" lang="pt-br">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,8 +29,8 @@
     <!--<script src="<?=URL?>public/bs/js/jquery.min.js"></script>-->
     <script src="<?=URL?>public/bs/js/jquery-1.12.3.min.js"></script>
     <script src="<?=URL?>public/bs/js/bootstrap.min.js"></script>
-    <script src="<?=URL?>public/bs/js/angular.min.js"></script>
-       
+    <<script src="<?=URL?>public/bs/js/common.js"></script>
+
     <?php 
 	Session::init();
 	$itemativo=Session::get("itemativo");
@@ -89,15 +89,28 @@
                     <li class="<?=$consulta?>">
                         <a href="<?php echo(URL);?>"><i class="fas fa-search"></i> Consultar Limites</a>
                     </li>
-                    <li class="<?=$cadLimites?>">
-                        <a href="<?=URL?>cadLimite/index"><i class="fas fa-map-marker-alt"></i> Cadastrar Limites</a>
-                    </li>   
-                    <li class="<?=$cadUsuarios?>">
-                        <a href="<?=URL?>cadUsuario/index"><i class="fa fa-user"></i> Cadastrar Usuário</a>
-                    </li>  
-		    <li class="<?=$contatos?>">
-                        <a href="<?=URL?>contato/index"><i class="fas fa-phone"></i> Contatos</a>
-                    </li>
+                   
+                        
+                  
+                     <?php 
+                        Session::init();
+                        $logado=Session::get("logado");
+                        if($logado==true){
+                            ?>
+                        }
+                          <li class="<?=$cadLimites?>">
+                             <a href="<?=URL?>cadLimite/index"><i class="fas fa-map-marker-alt"></i> Cadastrar Limites</a>
+                         </li>   
+                                <li class="<?=$cadUsuarios?>">
+                                    <a href="<?=URL?>cadUsuario/index"><i class="fa fa-user"></i> Cadastrar Usuário</a>
+                                </li>  
+                              
+                    <?php 
+                        }
+                        ?>
+                                  <li class="<?=$contatos?>">
+                                    <a href="<?=URL?>contato/index"><i class="fas fa-phone"></i> Contatos</a>
+                                </li>
                 </ul>
             </div>
         </nav>

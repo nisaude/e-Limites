@@ -14,14 +14,14 @@
                     <div class="col-sm-3"></div>
                         <div class="col-sm-6">
                             <div class="configdiv" style="text-align:left">
-                                <div ng-controller="CadLimitesController">
+                                <div>
                                     <form name="frmCadLimite" id="frmCadLimite" method="post" role="form">
                                         <!-- CEP / IBGE -->
                                         <div class="row">
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">CEP:</label>
                                                 <div class="col-sm-4">
-                                                    <input type="text" class="form-control" id="txtCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10" onblur="pesquisaCep(txtCEP.value)" ng-readonly="editando" ng-model="limite.Cep" ng-model-options="{ getterSetter: true }" >
+                                                    <input type="text" class="form-control" id="txtCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10">
                                                 </div>
                                                 <div class="col-sm-1"></div>
                                                 <label class="col-sm-1 col-form-label">IBGE:</label>

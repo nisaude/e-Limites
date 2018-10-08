@@ -56,12 +56,12 @@
                                         <br>
                                         <div class="col-sm-2"></div>
                                         <div id="CadUsuario">
-                                            <button type="submit" id="btnUsuarioSalvar" name="btnUsuarioSalvar" class="btn btn-success" ng-click="incluirPessoa()"><i class="fas fa-save"></i>
+                                            <button type="button" id="btnUsuarioSalvar" name="btnUsuarioSalvar" class="btn btn-success"><i class="fas fa-save"></i>
                                                 Incluir
                                             </button>
                                            
-                                            <button type="reset" id="btnUsuarioCancel" name="btnUsuarioCancel" class="btn btn-danger" ng-click="excluirPessoa"><i class="fas fa-times"></i>
-                                                Excluir
+                                            <button type="button" id="btnUsuarioGravar" name="btnUsuarioGravar" class="btn btn-danger hidden"><i class="fas fa-times"></i>
+                                                Gravar
                                             </button>
                                             
                                             <br>
@@ -71,7 +71,7 @@
                                         </div>
                                         
                                         <div>
-                                            {{result}}
+                                          <!--  {{result}} -->
                                         </div>
                                         
                                         <br>
@@ -81,23 +81,11 @@
                                                     <tr>
                                                         <th>ID</th>
                                                         <th>Nome</th>
-                                                        <th>Senha</th>
+                                                       
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr ng-repeat="d in listaUsuarios">
-                                                        <td>{{d.id}}</td>
-                                                        <td>{{d.nome}}</td>
-                                                        <td>{{d.senha}}</td>
-                                                        <td><a href="#" ng-click="editarUsuario(d.id)">
-                                                            <span class="glyphicon glyphicon-edit"></span>
-							</a>
-							
-							<a href="#" ng-click="excluirUsuario(d.id)">
-                                                            <span class="glyphicon glyphicon-trash"></span>
-							</a>	
-						</td>
-                                                    </tr>
+                                                <tbody id="listaU">
+                                                 
                                                 </tbody>
                                             </table>
                                         </div>

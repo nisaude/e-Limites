@@ -8,7 +8,8 @@ class CadLimite_Model extends Model{
     
     public function lista() {  
         
-        $result=$this->db->select('select id,cep,logradouro,num_inicial,num_final,bairro,unidade,area,micro_area from angular.limite order by id');
+        $cep=$_POST["c"];
+        $result=$this->db->select('select id,cep,logradouro,num_inicial,num_final,bairro,unidade,area,micro_area from limite where cep=:par_cep',array(":par_cep"=>$cep));
 			
         $result = json_encode($result);
 		

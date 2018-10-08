@@ -4,7 +4,7 @@ class CadLimite extends Controller{
     
     function __construct() {
         parent::__construct();
-        //Auth::autentica();
+        Auth::autentica();
         $this->view->js = array('views/cadLimite/limite.js');
 	//$this->view->js = array('views/cadLimite/buscaViaCep.js');
         $this->view->angularApp="LimitesApp";

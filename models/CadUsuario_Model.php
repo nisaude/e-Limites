@@ -7,7 +7,7 @@ class CadUsuario_Model extends Model {
     }
     
     public function lista() {  
-        $result=$this->db->select('select id,nome from usuario order by nome');
+        $result=$this->db->select('select id,nome from usuario order by id');
 		
 	$result = json_encode($result);
 		
@@ -34,20 +34,25 @@ class CadUsuario_Model extends Model {
        }
        else{
            echo("Usuario [$id] Já cadastrado");
+           
        }
     }
 	
-    public function del($ra=null) {  
+    public function del() {  
 		
-        $ra=(int)$ra;
-        $this->db->delete('angular.aluno',"ra='$ra'");
-	
-	echo "Aluno Removido com Sucesso!";
+        $id = $_POST["idusuario"];
+	        
+        if($id!=0){	
+           
+            $result=$this->db->delete("usuario", "id=".$id);
+            
+            echo("Usuário removido com sucesso!");
+	}
     }
 	
     public function loadData() {  
 		
-	$id=$_POST["idusuario"];
+	$id = $_POST["idusuario"];
 	if($id!=0){	
            
             $result=$this->db->select('select id,nome from usuario where id=:par_id',array(":par_id"=>$id));
@@ -56,8 +61,12 @@ class CadUsuario_Model extends Model {
 	}
     }
 	
-    public function save() {
+    public function edit() {
 	
+        
+        
+        
+        /*
         $aluno = json_decode(file_get_contents('php://input'),true);
 		
 	$ra=(int)$aluno["Ra"];
@@ -69,6 +78,6 @@ class CadUsuario_Model extends Model {
 	//print_r($aluno);		        
         $this->db->update('angular.aluno', $dadosSave,"ra='$ra'");
         
-        echo "Dados gravados com Sucesso";   
+        echo "Dados gravados com Sucesso";   */
     }
 }

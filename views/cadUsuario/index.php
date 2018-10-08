@@ -59,21 +59,14 @@
                                             <button type="button" id="btnUsuarioSalvar" name="btnUsuarioSalvar" class="btn btn-success"><i class="fas fa-save"></i>
                                                 Incluir
                                             </button>
-                                           
-                                            <button type="button" id="btnUsuarioGravar" name="btnUsuarioGravar" class="btn btn-danger hidden"><i class="fas fa-times"></i>
-                                                Gravar
+                                            <button type="button" id="btnUsuarioEditar" name="btnUsuarioGravar" class="btn btn-success hidden"><i class="fas fa-times"></i>
+                                                Salvar Alteração
                                             </button>
-                                            
+                                            <button type="button" id="btnUsuarioCancelar" name="btnUsuarioCancelar" class="btn btn-danger hidden"><i class="fas fa-times"></i>
+                                                Cancelar
+                                            </button>
                                             <br>
-                                            
-                                            
-                                            
                                         </div>
-                                        
-                                        <div>
-                                          <!--  {{result}} -->
-                                        </div>
-                                        
                                         <br>
                                         <div>
                                             <table class="table table-hover">
@@ -81,7 +74,6 @@
                                                     <tr>
                                                         <th>ID</th>
                                                         <th>Nome</th>
-                                                       
                                                     </tr>
                                                 </thead>
                                                 <tbody id="listaU">

@@ -27,15 +27,15 @@ class CadUsuario extends Controller{
         $this->model->lista();
     }
 	
-    function del($ra=null) {
-        $this->model->del($ra);
+    function del() {
+        $this->model->del();
     }
 	
     function loadData() {
         $this->model->loadData();
     }
 	
-    function save() {
-        $this->model->save();
+    function edit() {
+        $this->model->edit();
     }
 }

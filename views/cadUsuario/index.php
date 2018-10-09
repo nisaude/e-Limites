@@ -59,7 +59,7 @@
                                             <button type="button" id="btnUsuarioSalvar" name="btnUsuarioSalvar" class="btn btn-success"><i class="fas fa-save"></i>
                                                 Incluir
                                             </button>
-                                            <button type="button" id="btnUsuarioEditar" name="btnUsuarioGravar" class="btn btn-success hidden"><i class="fas fa-times"></i>
+                                            <button type="button" id="btnUsuarioEditar" name="btnUsuarioEditar" class="btn btn-success hidden"><i class="fas fa-times"></i>
                                                 Salvar Alteração
                                             </button>
                                             <button type="button" id="btnUsuarioCancelar" name="btnUsuarioCancelar" class="btn btn-danger hidden"><i class="fas fa-times"></i>

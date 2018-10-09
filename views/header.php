@@ -37,11 +37,13 @@
 	$consulta="";
         $cadLimites="";
         $cadUsuarios="";
+        $cadUnidades="";
 	$contatos="";
 	switch($itemativo){
             case "consulta":$consulta="active"; break;
             case "cadLimites":$cadLimites="active"; break;
             case "cadUsuarios":$cadUsuarios="active";break;
+            case "cadUnidades":$cadUnidades="active";break;
             case "contatos":$contatos="active"; break;
 	}
         
@@ -100,6 +102,9 @@
                             <li class="<?=$cadUsuarios?>">
                                 <a href="<?=URL?>cadUsuario/index"><i class="fa fa-user"></i> Cadastrar Usuário</a>
                             </li>   
+                            <li class="<?=$cadUnidades?>">
+                                <a href="<?=URL?>cadUnidade/index"><i class="fa fa-user"></i> Cadastrar Unidade</a>
+                            </li>  
                     <?php  
                         }
                     ?>

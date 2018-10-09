@@ -63,8 +63,17 @@ class CadUsuario_Model extends Model {
 	
     public function edit() {
 	
+        echo "Dados gravados com Sucesso";
+        /*
+        $id=$_POST["txtCadUsuarioId"];
+        $nome=$_POST["txtCadUsuarioNome"];
+        $senha=$_POST["txtCadUsuarioSenha"];
         
+        $senha=hash("sha256",$senha);
         
+        $dados=array('id'=>$id, 'nome'=>$nome, 'senha'=>$senha);
+        
+        $this->db->update('usuario', $dados,"id='$id'");
         
         /*
         $aluno = json_decode(file_get_contents('php://input'),true);

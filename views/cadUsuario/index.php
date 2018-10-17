@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-12">
                 <h1 class="page-header">
-                    Cadastrar Usuários
+                    Cadastrar Usuário
                 </h1>
                 </div>
             </div>
@@ -15,7 +15,7 @@
                         <div class="col-sm-6">
                             <div class="configdiv">
                                 <div ng-controller="CadUsuarioController">
-                                    <form name="frmCadUsuario" id="frmCadUsuario" method="post" role="form">
+                                    <form name="frmCadUsuario" id="frmCadUsuario" method="post" role="form" autocomplete="off">
                                         <!-- ID -->
                                         <div class="row">
                                             <div class="form-group row">
@@ -39,7 +39,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Senha:</label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" class="form-control" id="txtCadUsuarioSenha" name="txtCadUsuarioSenha" placeholder="Senha..." maxlength="10" ng-model="frmInclusao.Senha" ng-model-options="{ getterSetter: true }" ></input>
+                                                    <input type="password" class="form-control" id="txtCadUsuarioSenha" name="txtCadUsuarioSenha" placeholder="Senha..." maxlength="10" ng-model="frmInclusao.Senha" ng-model-options="{ getterSetter: true }" ></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -48,7 +48,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Confirmar Senha:</label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" class="form-control" id="txtCadUsuarioConfSenha" name="txtCadUsuarioConfSenha" placeholder="Confirme a Senha..." maxlength="10" ng-model="frmInclusao.ConfSenha" ng-model-options="{ getterSetter: true }" ></input>
+                                                    <input type="password" class="form-control" id="txtCadUsuarioConfSenha" name="txtCadUsuarioConfSenha" placeholder="Confirme a Senha..." maxlength="10" ng-model="frmInclusao.ConfSenha" ng-model-options="{ getterSetter: true }" ></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -73,7 +73,8 @@
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
-                                                        <th>Nome</th>
+                                                        <th>Usuário / Login</th>
+                                                        <th>Editar / Excluir</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="listaU">

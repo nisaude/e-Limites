@@ -1,7 +1,21 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+$(document).ready(function(){
+    
+    
+    
+    //Click do botão Incluir Unidade
+    $(document).on("click","#btnUnidadeIncluir", function(){
+       
+        var frm = $("#frmCadUnidade").serialize();
+        
+        $.post(BASE+"CadUnidade/insert",frm).done(function(retorno){
+            
+            alert(retorno);
+            //listaUsuario();//Atualiza a lista dos usuários cadastrados
+            //limpaForm();
+        });
+        
+    });
+    
+    
+});
 

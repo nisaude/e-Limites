@@ -29,13 +29,13 @@ $(document).ready(function(){
     //Click no botão Salvar Alteração (UPDATE) do usuário
     $(document).on("click","#btnUsuarioEditar",function(){ //Neste caso vai ponto antes do editar por ser o nome da class e não do id que recebe o # antes
         
-        alert("Teste");
-        /*
-        var frm=$("#frmCadUsuario").serialize(); //Varre o formulário
+        var frm = $("#frmCadUsuario").serialize(); //Varre o formulário
         
         $.post(BASE+"CadUsuario/edit",frm).done(function(retorno){
+         
             alert(retorno);
-        }*/
+            
+        });
         
     });
     

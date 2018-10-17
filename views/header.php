@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Diego Fassion">
     <title><?=$this->title;?></title>
     
     <!-- favicon -->
-    <link rel="shortcut icon" href="public/bs/img/favicon.ico" />
+    <link href="<?=URL?>public/bs/img/favicon.ico" rel="shortcut icon" />
        
     <!-- Bootstrap Core CSS -->
     <link href="<?=URL?>public/bs/css/bootstrap.min.css" rel="stylesheet">
@@ -18,12 +18,10 @@
     <!-- Morris Charts CSS -->
     <link href="<?=URL?>public/bs/css/plugins/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="<?=URL?>bs/css/main.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?=URL?>public/bs/css/main.css" rel="stylesheet">
     
     <!-- Icones -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link href="<?=URL?>fontawesome-free-5.3.1-web/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?=URL?>public/fontawesome-free-5.3.1-web/css/all.css" rel="stylesheet">
     <!-- Lista de icones: https://fontawesome.com/icons?d=gallery&m=free -->
 	
     <!--<script src="<?=URL?>public/bs/js/jquery.min.js"></script>-->
@@ -103,7 +101,7 @@
                                 <a href="<?=URL?>cadUsuario/index"><i class="fa fa-user"></i> Cadastrar Usuário</a>
                             </li>   
                             <li class="<?=$cadUnidades?>">
-                                <a href="<?=URL?>cadUnidade/index"><i class="fa fa-user"></i> Cadastrar Unidade</a>
+                                <a href="<?=URL?>cadUnidade/index"><i class="fas fa-plus-square"></i> Cadastrar Unidade</a>
                             </li>  
                     <?php  
                         }

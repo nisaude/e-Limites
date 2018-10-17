@@ -63,8 +63,6 @@ class CadUsuario_Model extends Model {
 	
     public function edit() {
 	
-        echo "Dados gravados com Sucesso";
-        /*
         $id=$_POST["txtCadUsuarioId"];
         $nome=$_POST["txtCadUsuarioNome"];
         $senha=$_POST["txtCadUsuarioSenha"];
@@ -75,18 +73,7 @@ class CadUsuario_Model extends Model {
         
         $this->db->update('usuario', $dados,"id='$id'");
         
-        /*
-        $aluno = json_decode(file_get_contents('php://input'),true);
-		
-	$ra=(int)$aluno["Ra"];
-	$nome=$aluno["Nome"];
-	$end=$aluno["End"];
-		
-	$dadosSave=array('nome'=>$nome,'endereco'=>$end);
-		
-	//print_r($aluno);		        
-        $this->db->update('angular.aluno', $dadosSave,"ra='$ra'");
+        echo("Usuário alterado com sucesso!");
         
-        echo "Dados gravados com Sucesso";   */
     }
 }

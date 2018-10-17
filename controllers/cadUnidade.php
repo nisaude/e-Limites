@@ -1,20 +1,20 @@
 <?php
 
-class CadUsuario extends Controller{
+class cadUnidade extends Controller {
     
     function __construct() {
         parent::__construct();
         
         Auth::autentica();
-        $this->view->js = array('views/cadUsuario/usuario.js');//Inicia o javascript
+        $this->view->js = array('views/cadUnidade/unidade.js');
     }
     
     function index() {
         Session::init();
-        Session::set("itemativo","cadUsuarios");
-        $this->view->title = 'e-Limites - Cadastrar Usuário';
+        Session::set("itemativo","cadUnidades");
+        $this->view->title = 'e-Limites - Cadastrar Unidade';
         $this->view->render('header');
-        $this->view->render('cadUsuario/index');
+        $this->view->render('cadUnidade/index');
         $this->view->render('footer');
     }
     
@@ -34,7 +34,7 @@ class CadUsuario extends Controller{
         $this->model->loadData();
     }
 	
-    function edit() {
-        $this->model->edit();
+    function update() {
+        $this->model->update();
     }
 }

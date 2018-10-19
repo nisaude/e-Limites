@@ -38,7 +38,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2">CEP: </label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control" id="txtCadUnidCEP" placeholder="17.500-000" maxlength="10">
+                                                <input type="text" class="form-control" id="txtCadUnidCEP" name="txtCadUnidCEP" placeholder="17.500-000" maxlength="10">
                                             </div>
                                         </div>
                                     </div>
@@ -85,20 +85,24 @@
                                         <br>
                                     </div>
                                     <br>
-                                    <div>
+                                    
+                                    <div id="scroll">    
+
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Código</th>
-                                                    <th>Descrição</th>
-                                                    <th>Bairro</th>
+                                                    <th>CNES</th>
+                                                    <th>Unidade de Saúde</th>
+                                                    <th>Editar / Excluir</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="listaU">
                                               
                                             </tbody>
                                         </table>
-                                    </div>
+                                           
+                                    </div>    
+                                    
                                 </form>
                             </div>
                         </div>

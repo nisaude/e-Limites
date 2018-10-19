@@ -19,6 +19,8 @@
     <link href="<?=URL?>public/bs/css/plugins/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="<?=URL?>public/bs/css/main.css" rel="stylesheet">
+    <!-- CSS Unidade -->
+    <link href="<?=URL?>public/bs/css/unidade.css" rel="stylesheet" type="text/css">
     
     <!-- Icones -->
     <link href="<?=URL?>public/fontawesome-free-5.3.1-web/css/all.css" rel="stylesheet">
@@ -27,8 +29,8 @@
     <!--<script src="<?=URL?>public/bs/js/jquery.min.js"></script>-->
     <script src="<?=URL?>public/bs/js/jquery-1.12.3.min.js"></script>
     <script src="<?=URL?>public/bs/js/bootstrap.min.js"></script>
-    <<script src="<?=URL?>public/bs/js/common.js"></script>
-
+    <script src="<?=URL?>public/bs/js/common.js"></script>
+    
     <?php 
 	Session::init();
 	$itemativo=Session::get("itemativo");

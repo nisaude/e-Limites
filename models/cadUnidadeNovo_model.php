@@ -46,5 +46,6 @@ class cadUnidadeNovo_model extends Model {
        else{
            echo("Unidade [$CNES] já cadastrado!");
        }
+       
     }
 }

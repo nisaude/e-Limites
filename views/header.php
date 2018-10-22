@@ -39,6 +39,7 @@
         $cadUsuarios="";
         $cadUnidades="";
 	$contatos="";
+        
 	switch($itemativo){
             case "consulta":$consulta="active"; break;
             case "cadLimites":$cadLimites="active"; break;
@@ -74,17 +75,25 @@
                 </button>    
                 <a class="navbar-brand" href="<?php echo(URL);?>" >e-Limites</a>
             </div>
-            <!-- Top Menu Itens -->
-            <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Usuário <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="<?=URL?>login"><i class="fa fa-fw fa-power-off"></i> Sair </a>
-                        </li>
-                    </ul>
-                </li>
+            
+            <ul class="nav navbar-nav navbar-right">
+                <?php
+                    Session::init();
+                    if($logado=Session::get("logado")){
+                ?>
+                    <li><a href="<?=URL?>login"><span class="glyphicon glyphicon-log-in"></span> Sair </a></li>
+                    <li><a href=""></a></li>
+                <?php
+                    
+                    } else {
+                ?>        
+                    <li><a href="<?=URL?>login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+                    <li><a href=""></a></li>
+                <?php
+                    }
+                ?>
             </ul>
+            
             <!-- Sidebar Menu Items -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">

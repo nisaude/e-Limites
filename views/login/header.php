@@ -29,11 +29,8 @@
     <!--<script src="<?=URL?>public/bs/js/jquery.min.js"></script>-->
     <script src="<?=URL?>public/bs/js/jquery-1.12.3.min.js"></script>
     <script src="<?=URL?>public/bs/js/bootstrap.min.js"></script>
-	
-    <!-- Morris Charts JavaScript 
-    <script src="<?=URL?>public/bs/js/morris/raphael.min.js"></script>
-    <script src="<?=URL?>public/bs/js/morris/morris.min.js"></script>
-    <script src="<?=URL?>public/bs/js/morris/morris-data.js"></script>-->
+	<!--
+    <a href="javascript:newPopup()">Abrir popup</a>  -->
    
     <?php 
 	Session::init();

@@ -15,6 +15,7 @@ class Login extends Controller {
 	$this->view->render('login/header');
         $this->view->render('login/index');
 	$this->view->render('login/footer');
+        
     }
 	
     function login(){

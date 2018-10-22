@@ -7,7 +7,7 @@ $(document).ready(function(){
        
         var frm = $("#frmCadUnidade").serialize();
         
-        $.post(BASE+"cadUnidade/insert",frm).done(function(retorno){
+        $.post(BASE+"cadUnidadeNovo/insert",frm).done(function(retorno){
             
             alert(retorno);
             listaUnidade();
@@ -30,7 +30,7 @@ $(document).ready(function(){
         
         var cnes = $(this).attr("valor-id"); //Salva o valor do atributo valor-id na variável id
         
-        $.post(BASE+"cadUnidade/loadData",{cnesunidade: cnes}).done(function(retorno){ //envia o cnes da unidade para o model como parametro
+        $.post(BASE+"cadUnidadeNovo/loadData",{cnesunidade: cnes}).done(function(retorno){ //envia o cnes da unidade para o model como parametro
               
             try{
                 retorno=JSON.parse(retorno);
@@ -53,7 +53,7 @@ $(document).ready(function(){
     //Lista de Usuários
     function listaUnidade(){
        
-        $.post(BASE+"cadUnidade/lista",{}).done(function(retorno){
+        $.post(BASE+"cadUnidadeNovo/lista",{}).done(function(retorno){
             
             var txt="";
             

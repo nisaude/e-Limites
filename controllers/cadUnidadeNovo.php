@@ -1,6 +1,6 @@
 <?php
 
-class cadUnidade extends Controller {
+class cadUnidadeNovo extends Controller {
     
     function __construct() {
         parent::__construct();
@@ -38,15 +38,4 @@ class cadUnidade extends Controller {
     function update() {
         $this->model->update();
     }
-    //Teste
-    /*
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     */
 }

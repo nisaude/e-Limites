@@ -8,7 +8,6 @@
                 </h1>
                 </div>
             </div>
-            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="col-sm-3"></div>
@@ -16,21 +15,21 @@
                             <div class="configdiv">
                                 <div ng-controller="CadUsuarioController">
                                     <form name="frmCadUsuario" id="frmCadUsuario" method="post" role="form" autocomplete="off">
-                                        <!-- ID -->
+                                        <!-- Matrícula -->
                                         <div class="row">
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">ID:</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="txtCadUsuarioId" name="txtCadUsuarioId" placeholder="Insira o ID..." maxlength="50" ng-model="frmInclusao.Id" ng-model-options="{ getterSetter: true }" ></input>
+                                                <label class="col-sm-2 col-form-label">Matrícula:</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control" id="txtCadUsuarioId" name="txtCadUsuarioId" placeholder="Matrícula..." maxlength="7" onkeypress="return somenteNumeros(event)"></input>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- NOME -->
+                                        <!-- Usuário -->
                                         <div class="row">
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Nome:</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="txtCadUsuarioNome" name="txtCadUsuarioNome" placeholder="Insira o nome..." maxlength="50" ng-model="frmInclusao.Nome" ng-model-options="{ getterSetter: true }" ></input>
+                                                <label class="col-sm-2 col-form-label">Usuário:</label>
+                                                <div class="col-sm-5">
+                                                    <input type="text" class="form-control" id="txtCadUsuarioNome" name="txtCadUsuarioNome" placeholder="Insira o usuário..." maxlength="25" ></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -39,7 +38,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Senha:</label>
                                                 <div class="col-sm-6">
-                                                    <input type="password" class="form-control" id="txtCadUsuarioSenha" name="txtCadUsuarioSenha" placeholder="Senha..." maxlength="10" ng-model="frmInclusao.Senha" ng-model-options="{ getterSetter: true }" ></input>
+                                                    <input type="password" class="form-control" id="txtCadUsuarioSenha" name="txtCadUsuarioSenha" placeholder="Senha..." maxlength="10"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -68,7 +67,7 @@
                                             <br>
                                         </div>
                                         <br>
-                                        <div>
+                                        <div id="scroll">
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>

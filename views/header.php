@@ -112,7 +112,7 @@
                                 <a href="<?=URL?>cadUsuario/index"><i class="fa fa-user"></i> Cadastrar Usuário</a>
                             </li>   
                             <li class="<?=$cadUnidades?>">
-                                <a href="<?=URL?>cadUnidade/index"><i class="fas fa-plus-square"></i> Cadastrar Unidade</a>
+                                <a href="<?=URL?>cadUnidadeNovo/index"><i class="fas fa-plus-square"></i> Cadastrar Unidade</a>
                             </li>  
                     <?php  
                         }

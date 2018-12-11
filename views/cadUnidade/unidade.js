@@ -7,12 +7,14 @@ $(document).ready(function(){
        
         var frm = $("#frmCadUnidade").serialize();
         
-        $.post(BASE+"cadUnidadeNovo/insert",frm).done(function(retorno){
-            
-            alert(retorno);
-            listaUnidade();
-            limpaForm();
-        });
+        if(validaForm() == true){
+            $.post(BASE+"cadUnidadeNovo/insert",frm).done(function(retorno){
+
+                alert(retorno);
+                listaUnidade();
+                limpaForm();
+            });
+        }
         
     });
     
@@ -49,8 +51,30 @@ $(document).ready(function(){
           });
     });
     
+    //Click no botão excluir do unidade
+    $(document).on("click",".excluir",function(){ 
+            
+        var cnes = $(this).attr("valor-id"); //Salva o valor do atributo valor-id na variável id
+        try{
+            if (window.confirm("Confirma a exclusão da unidade CNES "+cnes+" ?")){
+
+                $.post(BASE+"cadUnidadeNovo/del",{cnesunidade: cnes}).done(function(retorno){ //envia o idusuario para o model como parametro
+
+                    alert(retorno);
+                    window.location.reload();
+                });
+            }
+
+            listaUnidade();
+            limpaForm();
+        }
+        catch(ee){
+            console.log(ee);
+        }  
+    });    
     
-    //Lista de Usuários
+    
+    //Lista de Unidades
     function listaUnidade(){
        
         $.post(BASE+"cadUnidadeNovo/lista",{}).done(function(retorno){
@@ -101,6 +125,25 @@ $(document).ready(function(){
         $("#btnUnidadeCancelar").addClass("hidden"); //Torna botão oculto
         $("#btnUnidadeIncluir").removeClass("hidden"); //Torna botão Visível
     }
+    
+    function validaForm(){
+  
+        if(document.frmCadUnidade.txtCadUnidCNES.value=="" || document.frmCadUnidade.txtCadUnidCNES.value.length < 7){
+            alert( "CNES inválido!!!" );
+            document.frmCadUnidade.txtCadUnidCNES.focus();
+            return false;
+        }
+        //document.frmCadUsuario.txtCadUsuarioNome.value.indexOf('@')==-1       SE NÃO POSSUI @ É INCORRETO
+        if( document.frmCadUnidade.txtCadUnidDesc.value==""){
+            alert( "O Campo descrição é obrigatório!" );
+            document.frmCadUnidade.txtCadUnidDesc.focus();
+            return false;
+        }
+
+        return true;
+    }    
+    
+    
     
 });
 

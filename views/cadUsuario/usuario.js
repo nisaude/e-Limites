@@ -2,20 +2,24 @@ $(document).ready(function(){
     
     listaUsuario();
     
-    
     //Click do botão Incluir usuário
     $(document).on("click","#btnUsuarioSalvar",function(){
        
         var frm=$("#frmCadUsuario").serialize(); //Varre o formulário
-     
+        
+        if(validaForm() == true){
         //controller CadUsuario
-        //metodo insert
+        //metodo insert        
         $.post(BASE+"CadUsuario/insert",frm).done(function(retorno){
          
             alert(retorno);
             listaUsuario();//Atualiza a lista dos usuários cadastrados
             limpaForm();
         });
+        
+        
+        }
+        
     });
     
     //Click no botão cancelar do usuário
@@ -34,7 +38,9 @@ $(document).ready(function(){
         $.post(BASE+"CadUsuario/edit",frm).done(function(retorno){
          
             alert(retorno);
-            
+            listaUsuario();
+            limpaForm();
+            inserindo();
         });
         
     });
@@ -66,7 +72,7 @@ $(document).ready(function(){
             
         var id = $(this).attr("valor-id"); //Salva o valor do atributo valor-id na variável id
         try{
-            if (window.confirm("Confirma a exclusão do usuário "+id+" ?")){
+            if (window.confirm("Confirma a exclusão do usuário de Matrícula nº "+id+" ?")){
 
                 $.post(BASE+"CadUsuario/del",{idusuario: id}).done(function(retorno){ //envia o idusuario para o model como parametro
 
@@ -134,6 +140,49 @@ $(document).ready(function(){
         $("#btnUsuarioCancelar").addClass("hidden"); //Torna botão oculto
         $("#btnUsuarioSalvar").removeClass("hidden"); //Torna botão Visível
     }
+      
+    function validaForm(){
+  
+        if(document.frmCadUsuario.txtCadUsuarioId.value=="" || document.frmCadUsuario.txtCadUsuarioId.value.length < 5){
+            alert( "Matrícula inválida (Mínimo 5 Caractéres)" );
+            document.frmCadUsuario.txtCadUsuarioId.focus();
+            return false;
+        }
+        //document.frmCadUsuario.txtCadUsuarioNome.value.indexOf('@')==-1       SE NÃO POSSUI @ É INCORRETO
+        if( document.frmCadUsuario.txtCadUsuarioNome.value==""){
+            alert( "Preencha campo Nome corretamente!" );
+            document.frmCadUsuario.txtCadUsuarioNome.focus();
+            return false;
+        }
+
+        if (document.frmCadUsuario.txtCadUsuarioSenha.value=="") {
+            alert( "Preencha o campo Senha!" );
+            document.frmCadUsuario.txtCadUsuarioSenha.focus();
+            return false;
+        }
+
+        if (document.frmCadUsuario.txtCadUsuarioConfSenha.value != document.frmCadUsuario.txtCadUsuarioSenha.value) {
+            alert( "As senhas são divergentes!" );
+            document.frmCadUsuario.txtCadUsuarioSenha.focus();
+            return false;
+        }
+        return true;
+    }
+    
+    function somenteNumeros(e) {
+        var charCode = e.charCode ? e.charCode : e.keyCode;
+        // charCode 8 = backspace   
+        // charCode 9 = tab
+        if (charCode != 8 && charCode != 9) {
+            // charCode 48 equivale a 0   
+            // charCode 57 equivale a 9
+            if (charCode < 48 || charCode > 57) {
+                return false;
+            }
+        }
+    }    
+    
+    
     
     
     

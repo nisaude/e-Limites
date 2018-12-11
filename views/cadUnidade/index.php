@@ -8,7 +8,6 @@
                 </h1>
                 </div>
             </div>
-            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="col-sm-3"></div>
@@ -85,9 +84,7 @@
                                         <br>
                                     </div>
                                     <br>
-                                    
                                     <div id="scroll">    
-
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
@@ -100,9 +97,7 @@
                                               
                                             </tbody>
                                         </table>
-                                           
-                                    </div>    
-                                    
+                                    </div>                                        
                                 </form>
                             </div>
                         </div>

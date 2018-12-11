@@ -14,17 +14,6 @@ class cadUnidadeNovo_model extends Model {
 	echo $result;
     }
     
-    public function loadData() { //Chamada no botão editar 
-		
-	$cnes = $_POST["cnesunidade"];
-	if($cnes!=0){	
-           
-            $result=$this->db->select('select cnes, descricao, cep, endereco, bairro, cidade from unidade where cnes=:par_cnes',array(":par_cnes"=>$cnes));
-            $result = json_encode($result);
-            echo($result);
-	}
-    }
-    
     public function insert() {
         
         $CNES = $_POST["txtCadUnidCNES"];
@@ -48,4 +37,44 @@ class cadUnidadeNovo_model extends Model {
        }
        
     }
+    
+    public function del() {  
+		
+        $cnes = $_POST["cnesunidade"];
+	        
+        if($cnes!=0){	
+           
+            $result=$this->db->delete("unidade", "cnes=".$cnes);
+            
+            echo("Unidade removido com sucesso!");
+	}
+    }    
+    
+    public function loadData() { //Chamada no botão editar 
+		
+	$cnes = $_POST["cnesunidade"];
+	if($cnes!=0){	
+           
+            $result=$this->db->select('select cnes, descricao, cep, endereco, bairro, cidade from unidade where cnes=:par_cnes',array(":par_cnes"=>$cnes));
+            $result = json_encode($result);
+            echo($result);
+	}
+    } 
+
+    public function edit() {
+	
+        $cnes=$_POST["txtCadUnidCNES"];
+        $descricao=$_POST["txtCadUnidDesc"];
+        $cep=$_POST["txtCadUnidCEP"];
+        $endereco=$_POST["txtCadUnidEnd"];
+        $bairro=$_POST["txtCadUnidBairro"];
+        $cidade=$_POST["txtCadUnidCidade"];
+        
+        $dados=array('cnes'=>$cnes, 'descricao'=>$descricao, 'cep'=>$cep, 'endereco'=>$endereco, 'bairro'=>$bairro, 'cidade'=>$cidade);
+        
+        $this->db->update('unidade', $dados,"cnes='$cnes'");
+        
+        echo("Unidade alterada com sucesso!");
+        
+    }    
 }

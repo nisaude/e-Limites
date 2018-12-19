@@ -11,8 +11,8 @@
             
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="col-sm-3"></div>
-                        <div class="col-sm-6">
+                    <div class="col-sm-2"></div>
+                        <div class="col-sm-7">
                             <div class="configdiv" style="text-align:left">
                                 <div>
                                     <form name="frmCadLimite" id="frmCadLimite" method="post" role="form">
@@ -39,18 +39,24 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- NÚMEROS INICIAL E FINAL -->
+                                        <!-- NÚMEROS INICIAL / FINAL / LADO -->
                                         <div class="row">
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Núm. Incial:</label>
                                                 <div class="col-sm-2">
                                                     <input type="text" class="form-control" id="txtNumIni" name="txtNumIni" placeholder="Inicial" maxlength="6" ng-model="limite.NumIni" ng-model-options="{ getterSetter: true }" >
                                                 </div>
-                                                <div class="col-sm-2">
-                                                </div>
-                                                <label class="col-sm-2 col-form-label">Núm. Final:</label>
+                                                <label class="col-sm-1 col-form-label">Final:</label>
                                                 <div class="col-sm-2">
                                                     <input type="text" class="form-control" id="txtNumFim" name="txtNumFim" placeholder="Final" maxlength="6" ng-model="limite.NumFim" ng-model-options="{ getterSetter: true }" >
+                                                </div>
+                                                <label class="col-sm-1 col-form-label">Lado:</label>
+                                                <div class="col-sm-2">
+                                                    <select data-toggle="dropdown" class="form-control" aria-haspopup="true" aria-expanded="false">
+                                                        <option>Ambos</option>
+                                                        <option>Par</option>
+                                                        <option>Impar</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -77,12 +83,12 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Unidade:</label>
                                                 <div class="col-sm-5">                                                    
-                                                    <select data-toggle="dropdown" class="form-control" aria-haspopup="true" aria-expanded="false" ng-model="limite.Unidade">
-                                                        <option>Selecione a Unidade...</option>
-                                                        <option>USF Aeroporto</option>
-                                                        <option>USF Altaneira</option>
-                                                        <option>USF Aniz Badra</option>
-                                                        <option>USF Argolo Ferrão</option>
+                                                    <select name="unidades" id="unidades" class="form-control show-tick">
+                                                        <option value="">Selecione a Unidade...</option>
+                                                        <!--<option>USF Aeroporto</option> -->
+                                                        <!--<option>USF Altaneira</option> -->
+                                                        <!--<option>USF Aniz Badra</option> -->
+                                                        <!--<option>USF Argolo Ferrão</option> -->
                                                     </select>
                                                 </div>
                                                 <label class="col-sm-1 col-form-label">UF:</label>

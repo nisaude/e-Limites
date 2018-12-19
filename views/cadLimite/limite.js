@@ -1,36 +1,29 @@
 $(document).ready(function(){
-    
-    
-    $(document).on('blur','#txtCEP',function(){
         
-        var cep=$("#txtCEP").val();
-        if(cep.length>7){
+    preencherCombo();
+    
+    function preencherCombo(){
+        
+        $.post(BASE+"cadLimite/buscaUnidades", {}).done(function(dados){
+        
+        
+        //$.post(BASE+"cadLimite/buscaUnidades", {}, function (dados) {
             
+            var result = JSON.stringify(dados);
+            var response = JSON.parse(result);
             
-            $.post(BASE+"CadLimite/lista",{c: cep}).done(function(retorno){
-               try{ 
-                    retorno=JSON.parse(retorno);
-                    if(retorno.length>0){
-                        //achou no bd local
-                        
-                    }
-                    else{
-                        
-                        //viacep
-                    }
-                   }
-            catch(ee){
-                
-                
-            }
+            alert(response);
+            /*
+            var table = "";
+            $.each(response.unidade, function (index, value) {
+                table += '<option value="'+value.cnes+'" class="text-uppercase">' + value.descricao + '</option>';
             });
             
-            
-        }
-        
-        
-    });
-    
-    
-    
+            $("#unidades").append(table); //(#unidades é o id do teu select)
+            */
+        },
+        );
+   
+    }
+   
 });

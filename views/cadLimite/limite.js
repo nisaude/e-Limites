@@ -4,26 +4,31 @@ $(document).ready(function(){
     
     function preencherCombo(){
         
-        $.post(BASE+"cadLimite/buscaUnidades", {}).done(function(dados){
-        
-        
-        //$.post(BASE+"cadLimite/buscaUnidades", {}, function (dados) {
+        //$.post(BASE+"cadLimite/buscaUnidades", {}).done(function(dados){
+        $.post(BASE+"cadLimite/buscaUnidades", {}, function (dados) {
             
-            var result = JSON.stringify(dados);
-            var response = JSON.parse(result);
+            var response = JSON.parse(dados);
+            var txt = "";
             
-            alert(response);
-            /*
-            var table = "";
-            $.each(response.unidade, function (index, value) {
-                table += '<option value="'+value.cnes+'" class="text-uppercase">' + value.descricao + '</option>';
-            });
-            
-            $("#unidades").append(table); //(#unidades é o id do teu select)
-            */
+            try{
+
+                $.each(response, function (index, value) { //index para indexar
+                    txt+="<option value="+value.cnes+" class=\" \">"+value.descricao+"</option>";
+                });
+                
+                $("#unidades").append(txt); //(#unidades é o id do teu select)
+                
+            }
+            catch(ee){
+                console.log(ee);
+            }
+                        
         },
         );
    
     }
+   
+   
+   
    
 });

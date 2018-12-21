@@ -39,7 +39,7 @@ class cadLimite extends Controller{
         $this->model->save();
     }
     
-    function buscaUnid() {
-        $this->model->buscaUnid();
+    function buscaUnidades() {
+        $this->model->buscaUnidades();
     }
 }

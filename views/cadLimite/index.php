@@ -15,13 +15,13 @@
                         <div class="col-sm-7">
                             <div class="configdiv" style="text-align:left">
                                 <div>
-                                    <form name="frmCadLimite" id="frmCadLimite" method="post" role="form">
+                                    <form name="frmCadLimite" id="frmCadLimite" method="post" role="form" autocomplete="off">
                                         <!-- CEP / IBGE -->
                                         <div class="row">
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">CEP:</label>
                                                 <div class="col-sm-4">
-                                                    <input type="text" class="form-control" id="txtCadCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10" onkeypress="mascara(this, '##.###-###')" onblur="pesquisaCep(this.value)">
+                                                    <input type="text" class="form-control" id="txtCadCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10"  onkeypress="mascara(this, '##.###-###')" onblur="pesquisaCep(this.value)">
                                                 </div>
                                                 <div class="col-sm-1"></div>
                                                 <label class="col-sm-1 col-form-label">IBGE:</label>
@@ -85,10 +85,6 @@
                                                 <div class="col-sm-5">                                                    
                                                     <select name="unidades" id="unidades" class="form-control show-tick">
                                                         <option value="">Selecione a Unidade...</option>
-                                                        <!--<option>USF Aeroporto</option> -->
-                                                        <!--<option>USF Altaneira</option> -->
-                                                        <!--<option>USF Aniz Badra</option> -->
-                                                        <!--<option>USF Argolo Ferrão</option> -->
                                                     </select>
                                                 </div>
                                                 <label class="col-sm-1 col-form-label">UF:</label>
@@ -116,11 +112,11 @@
                                         <br>
                                         <div class="col-sm-2"></div>
                                         <div id="botaoCad" ng-show="cadastrando">
-                                            <button type="submit" id="btnSalvar" name="btnSalvar" class="btn btn-success" ng-click="gravarDados(limite)"><i class="fas fa-save"></i>
+                                            <button type="submit" id="btnSalvar" name="btnSalvar" class="btn btn-success"><i class="fas fa-save"></i>
                                                 Salvar
                                             </button>
                                            
-                                            <button type="reset" id="btncancel" name="btnCancel" class="btn btn-danger"><i class="fas fa-times"></i>
+                                            <button type="reset" id="btncancel" name="btnCancel" class="btn btn-danger" onclick="limpa_formulario_cep();"><i class="fas fa-times"></i>
                                                 Cancelar
                                             </button>
                                         </div>

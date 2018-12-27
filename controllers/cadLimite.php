@@ -6,6 +6,7 @@ class cadLimite extends Controller{
         parent::__construct();
         Auth::autentica();
         $this->view->js = array('views/cadLimite/limite.js');
+        //$this->view->js = array('views/cadLimite/buscaViaCep.js');
     }
     
     function index() {

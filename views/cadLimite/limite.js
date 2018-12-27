@@ -1,7 +1,7 @@
 $(document).ready(function(){
         
     preencherCombo();
-    
+        
     function preencherCombo(){
         
         //$.post(BASE+"cadLimite/buscaUnidades", {}).done(function(dados){
@@ -9,27 +9,20 @@ $(document).ready(function(){
             
             var response = JSON.parse(dados);
             var txt = "";
-            
             try{
-
                 $.each(response, function (index, value) { //index para indexar
                     txt+="<option value="+value.cnes+" class=\" \">"+value.descricao+"</option>";
                 });
-                
                 $("#unidades").append(txt); //(#unidades é o id do teu select)
-                
             }
             catch(ee){
                 console.log(ee);
-            }
-                        
+            }                        
         },
         );
-   
     }
-   
-   
-   
+});
+    
     function pesquisaCep(valor) {
 
         //Nova variável "cep" somente com dígitos.
@@ -45,11 +38,11 @@ $(document).ready(function(){
             if(validacep.test(cep)) {
 
                 //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('ibge').value="...";
-                document.getElementById('logradouro').value="...";
-                document.getElementById('bairro').value="...";
-                document.getElementById('cidade').value="...";
-                document.getElementById('uf').value="...";
+                document.getElementById('txtIBGE').value="...";
+                document.getElementById('txtLogradouro').value="...";
+                document.getElementById('txtBairro').value="...";
+                document.getElementById('txtCidade').value="...";
+                document.getElementById('txtUF').value="...";
                 
 
                 //Cria um elemento javascript.
@@ -64,39 +57,31 @@ $(document).ready(function(){
             } //end if.
             else {
                 //cep é inválido.
-                //window.location.reload();
                 alert('Formato de CEP inválido.');
-                $().focus();
-                //document.getElementById("txtCEP").focus();
+                setTimeout(function(){$("#txtCadCEP").select()}, 50);
             }
         } //end if.
         else {
             //cep sem valor, limpa formulário.
-            //window.location.reload();
             alert("Favor, informe um CEP!");
-            //$("#txtCadCEP").focus();
+            setTimeout(function(){$("#txtCadCEP").focus()}, 50);
             
-            $("#txtLogradouro").focus();
         }
-    };
-    /*
+    }
+    
     function limpa_formulario_cep() {
             //Limpa valores do formulário de cep.
-            document.getElementById('rua').value=("");
-            document.getElementById('bairro').value=("");
-            document.getElementById('cidade').value=("");
-            document.getElementById('uf').value=("");
-            document.getElementById('ibge').value=("");
+            window.location.reload();
     }
-    */
+    
     function meu_callback(conteudo) {
         if (!("erro" in conteudo)) {
             //Atualiza os campos com os valores.
-            document.getElementById('rua').value=(conteudo.logradouro);
-            document.getElementById('bairro').value=(conteudo.bairro);
-            document.getElementById('cidade').value=(conteudo.localidade);
-            document.getElementById('uf').value=(conteudo.uf);
-            document.getElementById('ibge').value=(conteudo.ibge);
+            document.getElementById('txtIBGE').value=(conteudo.ibge);
+            document.getElementById('txtLogradouro').value=(conteudo.logradouro);
+            document.getElementById('txtBairro').value=(conteudo.bairro);
+            document.getElementById('txtCidade').value=(conteudo.localidade);
+            document.getElementById('txtUF').value=(conteudo.uf);
         } //end if.
         else {
             //CEP não Encontrado.
@@ -104,8 +89,6 @@ $(document).ready(function(){
             alert("CEP não encontrado.");
         }
     }
-    
-    
     
     function mascara(t, mask){
         var i = t.value.length;
@@ -115,7 +98,3 @@ $(document).ready(function(){
             t.value += texto.substring(0,1);
         }
     }
-   
-   
-   
-});

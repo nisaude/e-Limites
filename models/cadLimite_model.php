@@ -8,11 +8,8 @@ class cadLimite_model extends Model{
     
     public function lista() {  
         
-        $cep=$_POST["c"];
-        $result=$this->db->select('select id,cep,logradouro,num_inicial,num_final,bairro,unidade,area,micro_area from limite where cep=:par_cep',array(":par_cep"=>$cep));
-			
+        $result=$this->db->select('select id,cep,logradouro,num_inicial,num_final,bairro,unidade,area,micro_area from limite order by id');	
         $result = json_encode($result);
-		
 	echo $result;
     }
 	
@@ -24,34 +21,21 @@ class cadLimite_model extends Model{
         echo "Aluno Removido com Sucesso!";
     }
 	
-    public function loadData($ra=null) {  
-		
-        $ra=(int)$ra;
-        if($ra!=0){	
-            //alterei aqui tambem para retornar o nome dos 
-            //campos de acordo com os nomes definidos no ng-model
-            $result=$this->db->select('select ra as Ra,nome as Nome,endereco as End from angular.aluno where ra=:ra',array(":ra"=>$ra));
+    public function loadData() {  
+	
+        $cep = $_POST["cepLimite"];
+	if($cep!=0){	
+           
+            $result=$this->db->select('select id,cep,logradouro,num_inicial,num_final,bairro,unidade,area,micro_area,lado from limite where cep=:par_cep',array(":par_cep"=>$cep));
             $result = json_encode($result);
             echo($result);
-        }
+	}
     }
 	
     public function salvar() { //insert
 		
-        /*
-	php://input --> permite ler os dados do corpo da requisicao http
-	No angular os dados são passados como json no corpo do http
-	*/
-	
-	$limite = json_decode(file_get_contents('php://input'),true);     
-		        
-        //$this->db->insert('angular.limite', array('ra' =>$aluno["Ra"],'nome'=>$aluno["Nome"],'endereco'=>$aluno["End"]));
+       
         
-        $this->db->insert('angular.limite', array('cep'=>$cep["Cep"],'logradouro'=>$logradouro["Logradouro"],'num_inicial'=>$num_inicial["NumIni"],
-                          'num_final'=>$num_final["NumFim"],'bairro'=>$bairro["Bairro"],'unidade'=>$unidade["Unidade"],'area'=>$area["Area"],
-                          'micro_area'=>$micro_area["MicroArea"]));
-        
-        echo "Dados Inseridos com Sucesso";
     }    
     
     public function save() {  //EDITAR

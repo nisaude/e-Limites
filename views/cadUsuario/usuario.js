@@ -10,7 +10,7 @@ $(document).ready(function(){
         if(validaForm() == true){
         //controller CadUsuario
         //metodo insert        
-        $.post(BASE+"CadUsuario/insert",frm).done(function(retorno){
+        $.post(BASE+"cadUsuario/insert",frm).done(function(retorno){
          
             alert(retorno);
             listaUsuario();//Atualiza a lista dos usuários cadastrados
@@ -35,7 +35,7 @@ $(document).ready(function(){
         
         var frm = $("#frmCadUsuario").serialize(); //Varre o formulário
         
-        $.post(BASE+"CadUsuario/edit",frm).done(function(retorno){
+        $.post(BASE+"cadUsuario/edit",frm).done(function(retorno){
          
             alert(retorno);
             listaUsuario();
@@ -52,7 +52,7 @@ $(document).ready(function(){
         limpaForm();
         
         var id = $(this).attr("valor-id"); //Salva o valor do atributo valor-id na variável id
-        $.post(BASE+"CadUsuario/loadData",{idusuario: id}).done(function(retorno){ //envia o idusuario para o model como parametro
+        $.post(BASE+"cadUsuario/loadData",{idusuario: id}).done(function(retorno){ //envia o idusuario para o model como parametro
               
             try{
                 retorno=JSON.parse(retorno);
@@ -74,7 +74,7 @@ $(document).ready(function(){
         try{
             if (window.confirm("Confirma a exclusão do usuário de Matrícula nº "+id+" ?")){
 
-                $.post(BASE+"CadUsuario/del",{idusuario: id}).done(function(retorno){ //envia o idusuario para o model como parametro
+                $.post(BASE+"cadUsuario/del",{idusuario: id}).done(function(retorno){ //envia o idusuario para o model como parametro
 
                     alert(retorno);
                     window.location.reload();
@@ -95,7 +95,7 @@ $(document).ready(function(){
     //Lista de Usuários
     function listaUsuario(){
        
-        $.post(BASE+"CadUsuario/lista",{}).done(function(retorno){
+        $.post(BASE+"cadUsuario/lista",{}).done(function(retorno){
             
             var txt="";
             
@@ -181,9 +181,5 @@ $(document).ready(function(){
             }
         }
     }    
-    
-    
-    
-    
     
 });

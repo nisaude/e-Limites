@@ -4,7 +4,6 @@ class cadUnidadeNovo extends Controller {
     
     function __construct() {
         parent::__construct();
-        
         Auth::autentica();
         $this->view->js = array('views/cadUnidade/unidade.js');
     }

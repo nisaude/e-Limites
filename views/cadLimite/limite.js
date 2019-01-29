@@ -1,10 +1,20 @@
 $(document).ready(function(){
         
     preencherCombo();
+    
+    var resultado = false;
+    
+    $(document).on("blur", "#txtCadCEP", function (){
+       
+        if (resultado == false) {
+            console.log("teste");
+        }
         
+    });
+    
     function preencherCombo(){
         
-        //$.post(BASE+"cadLimite/buscaUnidades", {}).done(function(dados){
+        //$.post(BASE+"cadLimite/buscaUnidades", {}).done(function(dados){ //Outra forma
         $.post(BASE+"cadLimite/buscaUnidades", {}, function (dados) {
             
             var response = JSON.parse(dados);
@@ -21,8 +31,40 @@ $(document).ready(function(){
         },
         );
     }
-});
     
+    
+    //Lista de Limites Cadastrados
+    function listaLimites(){
+       
+        $.post(BASE+"cadLimite/lista",{}).done(function(retorno){
+            
+            var txt="";
+            
+            try{
+                retorno=JSON.parse(retorno);// JSON.parse converte o retorno do select(lista) em formato JSON
+                for(var i=0;i<retorno.length;i++){   
+                    txt+="<tr><td>"+retorno[i].id+"</td>\n\
+                              <td>"+retorno[i].cep+"</td>\n\
+                              <td>"+retorno[i].logradouro+"</td>\n\
+                              <td>"+retorno[i].bairro+"</td>\n\
+                              <td>"+retorno[i].num_inicial+"</td>\n\
+                              <td>"+retorno[i].num_final+"</td>\n\
+                              <td><a href=\"#\" class=\"editar\" valor-id=\""+retorno[i].id+"\"><span class=\"glyphicon glyphicon-edit\"></span></a>\n\
+                                  <a href=\"#\" class=\"excluir\" valor-id=\""+retorno[i].id+"\"><span class=\"glyphicon glyphicon-trash\"></span></a>\n\
+                         </td></tr>";
+                }                
+                $("#listaLimites").html(txt); //Pega tudo o que foi incluído pelo for na variável txt e joga no body chamado listaU
+            }
+            catch(ee){
+                console.log(ee);
+            }
+        });
+    }
+    
+    
+    
+});
+    /*
     function pesquisaCep(valor) {
 
         //Nova variável "cep" somente com dígitos.
@@ -67,7 +109,7 @@ $(document).ready(function(){
             setTimeout(function(){$("#txtCadCEP").focus()}, 50);
             
         }
-    }
+    } */
     
     function limpa_formulario_cep() {
             //Limpa valores do formulário de cep.

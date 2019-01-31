@@ -2,13 +2,71 @@ $(document).ready(function(){
         
     preencherCombo();
     
-    var resultado = false;
-    
+    //PESQUISA POR CEP
     $(document).on("blur", "#txtCadCEP", function (){
-       
-        if (resultado == false) {
-            console.log("teste");
-        }
+        var cep = document.getElementById("txtCadCEP").value;  //Salva o valor do campo na variável
+        $.post(BASE+"cadLimite/loadCEP",{cepLimite: cep}).done(function(retorno){ //envia o cep para o model como parametro
+            var txt="";              
+            try{
+                retorno=JSON.parse(retorno);
+                if (retorno.length>0){
+                    for(var i=0;i<retorno.length;i++){   
+                        txt+="<tr><td>"+retorno[i].id+"</td>\n\
+                                  <td>"+retorno[i].cep+"</td>\n\
+                                  <td>"+retorno[i].logradouro+"</td>\n\
+                                  <td>"+retorno[i].bairro+"</td>\n\
+                                  <td>"+retorno[i].num_inicial+"</td>\n\
+                                  <td>"+retorno[i].num_final+"</td>\n\
+                                  <td><a href=\"#\" class=\"editar\" valor-id=\""+retorno[i].id+"\"><span class=\"glyphicon glyphicon-edit\"></span></a>\n\
+                                      <a href=\"#\" class=\"excluir\" valor-id=\""+retorno[i].id+"\"><span class=\"glyphicon glyphicon-trash\"></span></a>\n\
+                             </td></tr>";
+                    }                
+                    $("#listaLimites").html(txt); //Pega tudo o que foi incluído pelo for na variável txt e joga no body chamado listaU
+                    $("#lblStatus").html("Dados da BASE LOCAL");
+                } else {
+                    limpaForm();
+                    pesquisaCep(cep);
+                }
+            }
+            catch(ee){
+                console.log(ee);
+            }              
+          });
+        
+    });
+    
+    //PESQUISA POR LOGRADOURO
+    $(document).on("blur", "#txtLogradouro", function (){
+        var logradouro = document.getElementById("txtLogradouro").value;  //Salva o valor do campo na variável
+        //var logradouro = ("'"+logradouro+"'");
+        limpaForm();
+        $.post(BASE+"cadLimite/loadLogradouro",{lograLimite: logradouro}).done(function(retorno){ //envia o logradouro para o model como parametro
+            var txt=""; 
+            try{
+                retorno=JSON.parse(retorno);
+                if (retorno.length>0){
+                    for(var i=0;i<retorno.length;i++){   
+                        txt+="<tr><td>"+retorno[i].id+"</td>\n\
+                                  <td>"+retorno[i].cep+"</td>\n\
+                                  <td>"+retorno[i].logradouro+"</td>\n\
+                                  <td>"+retorno[i].bairro+"</td>\n\
+                                  <td>"+retorno[i].num_inicial+"</td>\n\
+                                  <td>"+retorno[i].num_final+"</td>\n\
+                                  <td><a href=\"#\" class=\"editar\" valor-id=\""+retorno[i].id+"\"><span class=\"glyphicon glyphicon-edit\"></span></a>\n\
+                                      <a href=\"#\" class=\"excluir\" valor-id=\""+retorno[i].id+"\"><span class=\"glyphicon glyphicon-trash\"></span></a>\n\
+                             </td></tr>";
+                    }                
+                    $("#listaLimites").html(txt); //Pega tudo o que foi incluído pelo for na variável txt e joga no body chamado listaU
+                    $("#lblStatus").html("Dados da BASE LOCAL");
+                } else {
+                    alert('Rua não cadastrada!')
+                    setTimeout(function(){$("#txtLogradouro").select()}, 50);
+                }
+            }
+            catch(ee){
+                console.log(ee);
+            }              
+          });
         
     });
     
@@ -31,8 +89,7 @@ $(document).ready(function(){
         },
         );
     }
-    
-    
+        
     //Lista de Limites Cadastrados
     function listaLimites(){
        
@@ -64,7 +121,7 @@ $(document).ready(function(){
     
     
 });
-    /*
+    
     function pesquisaCep(valor) {
 
         //Nova variável "cep" somente com dígitos.
@@ -85,8 +142,8 @@ $(document).ready(function(){
                 document.getElementById('txtBairro').value="...";
                 document.getElementById('txtCidade').value="...";
                 document.getElementById('txtUF').value="...";
+                $("#lblStatus").html("Pesquisando...");
                 
-
                 //Cria um elemento javascript.
                 var script = document.createElement('script');
 
@@ -95,7 +152,7 @@ $(document).ready(function(){
 
                 //Insere script no documento e carrega o conteúdo.
                 document.body.appendChild(script);
-
+                
             } //end if.
             else {
                 //cep é inválido.
@@ -107,9 +164,25 @@ $(document).ready(function(){
             //cep sem valor, limpa formulário.
             alert("Favor, informe um CEP!");
             setTimeout(function(){$("#txtCadCEP").focus()}, 50);
-            
         }
-    } */
+    } 
+    
+    function limpaForm() {
+        $("#lblStatus").html("Origem do Resultado");
+        document.getElementById('txtIBGE').value="";
+        document.getElementById('txtLogradouro').value="";
+        document.getElementById('txtNumIni').value="";
+        document.getElementById('txtNumFim').value="";
+        document.getElementById('txtBairro').value="";
+        document.getElementById('txtCidade').value="";
+        document.getElementById('txtUF').value="";
+        document.getElementById('txtArea').value=""; 
+        document.getElementById('txtMicroArea').value="";
+        
+        var txt = "";
+        
+        $("#listaLimites").html(txt);
+    }
     
     function limpa_formulario_cep() {
             //Limpa valores do formulário de cep.
@@ -124,11 +197,13 @@ $(document).ready(function(){
             document.getElementById('txtBairro').value=(conteudo.bairro);
             document.getElementById('txtCidade').value=(conteudo.localidade);
             document.getElementById('txtUF').value=(conteudo.uf);
+            $("#lblStatus").html("Dados do VIACEP");
         } //end if.
         else {
             //CEP não Encontrado.
-            limpa_formulário_cep();
             alert("CEP não encontrado.");
+            limpaForm();
+            setTimeout(function(){$("#txtCadCEP").select()}, 50);
         }
     }
     

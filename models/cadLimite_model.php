@@ -13,23 +13,32 @@ class cadLimite_model extends Model{
 	echo $result;
     }
 	
+    public function loadCEP() {  
+	
+        $cep = $_POST["cepLimite"];
+	if($cep!=0){	
+            $result=$this->db->select('select id,cep,logradouro,num_inicial,num_final,bairro,unidade,area,micro_area,lado from limite where cep=:par_cep',array(":par_cep"=>$cep));
+            $result = json_encode($result);
+            echo($result);
+	}
+    }
+    
+    public function loadLogradouro() {  
+	
+        $logradouro = $_POST["lograLimite"];
+        if(!empty($logradouro)){ //Se não é vazio	
+            $result=$this->db->select('select id,cep,logradouro,num_inicial,num_final,bairro,unidade,area,micro_area,lado from limite where lower(logradouro)=lower(:par_logradouro)',array(":par_logradouro"=>$logradouro));
+            $result = json_encode($result);
+            echo($result);
+	}
+    }
+    
     public function del($ra=null) {  
 		
         $ra=(int)$ra;
         $this->db->delete('angular.aluno',"ra='$ra'");
 
         echo "Aluno Removido com Sucesso!";
-    }
-	
-    public function loadData() {  
-	
-        $cep = $_POST["cepLimite"];
-	if($cep!=0){	
-           
-            $result=$this->db->select('select id,cep,logradouro,num_inicial,num_final,bairro,unidade,area,micro_area,lado from limite where cep=:par_cep',array(":par_cep"=>$cep));
-            $result = json_encode($result);
-            echo($result);
-	}
     }
 	
     public function salvar() { //insert

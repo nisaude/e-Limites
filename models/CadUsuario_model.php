@@ -54,7 +54,6 @@ class CadUsuario_model extends Model {
 		
 	$id = $_POST["idusuario"];
 	if($id!=0){	
-           
             $result=$this->db->select('select id,nome from usuario where id=:par_id',array(":par_id"=>$id));
             $result = json_encode($result);
             echo($result);

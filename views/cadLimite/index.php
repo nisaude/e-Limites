@@ -21,13 +21,14 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">CEP:</label>
                                                 <div class="col-sm-4">
-                                                    <input type="text" class="form-control" id="txtCadCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10"  onkeypress="mascara(this, '##.###-###')" > <!--   onblur="pesquisaCep(this.value)"    -->
+                                                    <input type="text" class="form-control" id="txtCadCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10"  onkeypress="mascara(this, '##.###-###')" > 
                                                 </div>
                                                 <div class="col-sm-1"></div>
                                                 <label class="col-sm-1 col-form-label">IBGE:</label>
                                                 <div class="col-sm-2">
                                                     <input type="text" class="form-control" id="txtIBGE" name="txtIBGE" placeholder="IBGE..." maxlength="6">
                                                 </div>
+                                                <label class="col-sm-2 col-form-label" id="lblStatus">Origem do Resultado</label>
                                             </div>
                                         </div>
                                         <!-- LOGRADOURO -->

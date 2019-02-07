@@ -9,6 +9,13 @@ $(document).ready(function(){
             var txt="";              
             try{
                 retorno=JSON.parse(retorno);
+                
+                $("#txtIBGE").val(retorno[0].ibge);
+                $("#txtLogradouro").val(retorno[0].logradouro);
+                $("#txtBairro").val(retorno[0].bairro);
+                $("#txtCidade").val(retorno[0].cidade);
+                $("#txtUF").val(retorno[0].uf);
+                
                 if (retorno.length>0){
                     for(var i=0;i<retorno.length;i++){   
                         txt+="<tr><td>"+retorno[i].id+"</td>\n\
@@ -34,12 +41,12 @@ $(document).ready(function(){
           });
         
     });
-    
+    /*
     //PESQUISA POR LOGRADOURO
     $(document).on("blur", "#txtLogradouro", function (){
         var logradouro = document.getElementById("txtLogradouro").value;  //Salva o valor do campo na variável
         //var logradouro = ("'"+logradouro+"'");
-        limpaForm();
+        //limpaForm();
         $.post(BASE+"cadLimite/loadLogradouro",{lograLimite: logradouro}).done(function(retorno){ //envia o logradouro para o model como parametro
             var txt=""; 
             try{
@@ -59,7 +66,7 @@ $(document).ready(function(){
                     $("#listaLimites").html(txt); //Pega tudo o que foi incluído pelo for na variável txt e joga no body chamado listaU
                     $("#lblStatus").html("Dados da BASE LOCAL");
                 } else {
-                    alert('Rua não cadastrada!')
+                    alert('Rua não cadastrada!');
                     setTimeout(function(){$("#txtLogradouro").select()}, 50);
                 }
             }
@@ -68,6 +75,22 @@ $(document).ready(function(){
             }              
           });
         
+    }); */
+    
+    //Click do botão INCLUIR Limite
+    $(document).on("click","#btnCadLimiteIncluir", function(){
+        var frm = $("#frmCadLimite").serialize();
+        console.log(frm);
+        /*
+        if(validaForm() == true){
+            $.post(BASE+"cadLimite/insert",frm).done(function(retorno){
+                alert(retorno);
+                //alert(retorno);
+                //listaUnidade();
+                //limpaForm();
+            });
+        }
+        */
     });
     
     function preencherCombo(){

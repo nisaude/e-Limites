@@ -41,9 +41,35 @@ class cadLimite_model extends Model{
         echo "Aluno Removido com Sucesso!";
     }
 	
-    public function salvar() { //insert
-		
-       
+    public function insert() { //INCLUIR NOVO LIMITE
+	/*	
+        $CEP = $_POST["txtCadCEP"];
+        $IBGE = $_POST["txtIBGE"];
+        $lograduro = $_POST["txtLogradouro"];
+        $num_inicial = $_POST["txtNumIni"];
+        $num_final = $_POST["txtNumFim"];
+        $lado = $_POST["cbbUnidade"];
+        $bairro = $_POST["txtBairro"];
+        $cidade = $_POST["txtCidade"];
+        $unidade = $_POST["unidades"];
+        $uf = $_POST["txtUF"];
+        $area = $_POST["txtArea"];
+        $micro_area = $_POST["txtMicroArea"];
+        */
+        $result = "Teste";
+        //$result= $this->db->select('select cep,logradouro from limite where lower(cep)=lower(:par_cep) and lower(logradouro)=lower(:par_logradouro)', array("par_cep"=>$CEP, "par_logradouro"=>$lograduro));
+        echo($result);
+        /*
+        if(count($result)==0){
+        
+            $dados=array("cnes"=>$CNES,"descricao"=>$descricao,"cep"=>$cep,"endereco"=>$endereco,"bairro"=>$bairro,"cidade"=>$cidade);
+
+            $this->db->insert('unidade', $dados);
+            echo "Dados Inseridos com Sucesso!";
+       }
+       else{
+           echo("Unidade [$CNES] já cadastrado!");
+       }*/
         
     }    
     

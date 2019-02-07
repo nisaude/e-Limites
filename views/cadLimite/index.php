@@ -53,7 +53,7 @@
                                                 </div>
                                                 <label class="col-sm-1 col-form-label">Lado:</label>
                                                 <div class="col-sm-2">
-                                                    <select data-toggle="dropdown" class="form-control" aria-haspopup="true" aria-expanded="false">
+                                                    <select data-toggle="dropdown" class="form-control" id="cbbLado" aria-haspopup="true" aria-expanded="false">
                                                         <option>Ambos</option>
                                                         <option>Par</option>
                                                         <option>Impar</option>
@@ -93,7 +93,7 @@
                                                     <input type="text" class="form-control" id="txtUF" name="txtUF" placeholder="UF..." maxlength="6">
                                                 </div>
                                             </div>
-                                        </div> 
+                                        </div>
                                         <!-- ÁREA E MICRO ÁREA -->
                                         <div class="row">
                                             <div class="form-group row">
@@ -113,8 +113,8 @@
                                         <br>
                                         <div class="col-sm-2"></div>
                                         <div id="botaoCad" ng-show="cadastrando">
-                                            <button type="submit" id="btnSalvar" name="btnSalvar" class="btn btn-success"><i class="fas fa-save"></i>
-                                                Salvar
+                                            <button type="submit" id="btnCadLimiteIncluir" name="btnCadLimiteIncluir" class="btn btn-success"><i class="fas fa-save"></i>
+                                                Incluir
                                             </button>
                                            
                                             <button type="reset" id="btncancel" name="btnCancel" class="btn btn-danger" onclick="limpa_formulario_cep();"><i class="fas fa-times"></i>

@@ -13,9 +13,8 @@ $(document).ready(function(){
                 alert(retorno);
                 listaUnidade();
                 limpaForm();
-            });
+            }); 
         }
-        
     });
     
     //Click no botão Cancelar da Unidade    // btnUnidadeCancelar

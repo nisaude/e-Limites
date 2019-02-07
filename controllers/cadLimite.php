@@ -28,20 +28,15 @@ class cadLimite extends Controller{
     function del($ra=null) {
         $this->model->del($ra);
     }
-	
-    
-    
-    function loadCEP($cep=null) {
-        $this->model->loadCEP($cep);
+
+    function loadCEP() {
+        $this->model->loadCEP();
     }
     
     function loadLogradouro() {
         $this->model->loadLogradouro();
     }
 	
-    
-    
-    
     function save() {
         $this->model->save();
     }

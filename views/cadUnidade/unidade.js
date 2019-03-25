@@ -7,7 +7,7 @@ $(document).ready(function(){
        
         var frm = $("#frmCadUnidade").serialize();
         
-        if(validaForm() == true){
+        if(validaForm() == true){ //VALIDAÇÃO DO CAMPO
             $.post(BASE+"cadUnidadeNovo/insert",frm).done(function(retorno){
 
                 alert(retorno);
@@ -126,7 +126,7 @@ $(document).ready(function(){
     }
     
     function validaForm(){
-  
+        
         if(document.frmCadUnidade.txtCadUnidCNES.value=="" || document.frmCadUnidade.txtCadUnidCNES.value.length < 7){
             alert( "CNES inválido!!!" );
             document.frmCadUnidade.txtCadUnidCNES.focus();

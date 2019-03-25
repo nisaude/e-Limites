@@ -18,21 +18,21 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">CEP: </label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="txtConsCEP" placeholder="Insira o CEP..." maxlength="10" ng-model="frmConsLimites.Cep">
+                                        <input type="text" class="form-control" id="txtConsCEP" placeholder="Insira o CEP..." maxlength="10">
                                     </div>
                                 </div>
                                 <!-- LOGRADOURO -->
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Logradouro: </label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="txtConsLog" placeholder="Insira o logradouro..." maxlength="50" ng-model="frmConsLimites.Logradouro">
+                                        <input type="text" class="form-control" id="txtConsLog" placeholder="Insira o logradouro..." maxlength="50">
                                     </div>
                                 </div>
                                 <!-- BOTÃO CONSULTAR -->
                                 <div class="col-sm-2"></div>
                                 <div class="form-group row">
                                     <div class="col-sm-2">
-                                        <button type="button" class="btn btn-success" id="btnConsulta" name="btnConsulta" ng-click="consultarLimites()"><i class="fas fa-search"></i>
+                                        <button type="button" class="btn btn-success" id="btnConsulta" name="btnConsulta"><i class="fas fa-search"></i>
                                             Consultar</button>	
                                     </div>
                                 </div>

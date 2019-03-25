@@ -15,6 +15,7 @@ class cadLimite extends Controller{
 	$this->view->render('header');
         $this->view->render('cadLimite/index');
 	$this->view->render('footer');
+        
     }
     
     function insert() {

@@ -34,15 +34,15 @@ class cadLimite_model extends Model{
     }
     
     public function del($ra=null) {  
-		
+	/*	
         $ra=(int)$ra;
         $this->db->delete('angular.aluno',"ra='$ra'");
 
-        echo "Aluno Removido com Sucesso!";
+        echo "Aluno Removido com Sucesso!";*/
     }
 	
     public function insert() { //INCLUIR NOVO LIMITE
-	/*	
+		
         $CEP = $_POST["txtCadCEP"];
         $IBGE = $_POST["txtIBGE"];
         $lograduro = $_POST["txtLogradouro"];
@@ -55,20 +55,22 @@ class cadLimite_model extends Model{
         $uf = $_POST["txtUF"];
         $area = $_POST["txtArea"];
         $micro_area = $_POST["txtMicroArea"];
-        */
-        $result = "Teste";
-        //$result= $this->db->select('select cep,logradouro from limite where lower(cep)=lower(:par_cep) and lower(logradouro)=lower(:par_logradouro)', array("par_cep"=>$CEP, "par_logradouro"=>$lograduro));
+        
+        $result= $this->db->select('select cep,logradouro from limite where cep=:par_cep and logradouro=:par_logradouro)', array("par_cep"=>$CEP, "par_logradouro"=>$logradouro));
+        
         echo($result);
+        
         /*
         if(count($result)==0){
         
-            $dados=array("cnes"=>$CNES,"descricao"=>$descricao,"cep"=>$cep,"endereco"=>$endereco,"bairro"=>$bairro,"cidade"=>$cidade);
+            $dados=array("cep"=>$CEP,"IBGE"=>$IBGE,"logradouro"=>$lograduro,"num_inicial"=>$num_inicial,"num_final"=>$num_final,"lado"=>$lado,"bairro"=>$bairro,
+                "cidade"=>$cidade,"unidade"=>$unidade,"uf"=>$uf,"area"=>$area,"micro_area"=>$micro_area);
 
-            $this->db->insert('unidade', $dados);
+            $this->db->insert('limite', $dados);
             echo "Dados Inseridos com Sucesso!";
        }
        else{
-           echo("Unidade [$CNES] já cadastrado!");
+           echo("Limite de CEP [$CEP] e Logradouro [$lograduro] já cadastrado!");
        }*/
         
     }    

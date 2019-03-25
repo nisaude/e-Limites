@@ -1,22 +1,27 @@
+/* global BASE */
+
 $(document).ready(function(){
         
     preencherCombo();
+    encontrou = true;
     
     //PESQUISA POR CEP
     $(document).on("blur", "#txtCadCEP", function (){
         var cep = document.getElementById("txtCadCEP").value;  //Salva o valor do campo na variável
+        limpaForm();
         $.post(BASE+"cadLimite/loadCEP",{cepLimite: cep}).done(function(retorno){ //envia o cep para o model como parametro
             var txt="";              
             try{
                 retorno=JSON.parse(retorno);
                 
-                $("#txtIBGE").val(retorno[0].ibge);
-                $("#txtLogradouro").val(retorno[0].logradouro);
-                $("#txtBairro").val(retorno[0].bairro);
-                $("#txtCidade").val(retorno[0].cidade);
-                $("#txtUF").val(retorno[0].uf);
-                
                 if (retorno.length>0){
+                    
+                    $("#txtIBGE").val(retorno[0].ibge);
+                    $("#txtLogradouro").val(retorno[0].logradouro);
+                    $("#txtBairro").val(retorno[0].bairro);
+                    $("#txtCidade").val(retorno[0].cidade);
+                    $("#txtUF").val(retorno[0].uf);
+
                     for(var i=0;i<retorno.length;i++){   
                         txt+="<tr><td>"+retorno[i].id+"</td>\n\
                                   <td>"+retorno[i].cep+"</td>\n\
@@ -33,6 +38,20 @@ $(document).ready(function(){
                 } else {
                     limpaForm();
                     pesquisaCep(cep);
+                    /*
+                    if (encontrou == true){
+                        document.getElementById("txtIBGE").disabled = false;
+                        document.getElementById("txtLogradouro").disabled = false;
+                        document.getElementById("txtBairro").disabled = false;
+                        document.getElementById("txtCidade").disabled = false;
+                        document.getElementById("txtUF").disabled = false;
+                    }else{
+                        document.getElementById("txtIBGE").disabled = true;
+                        document.getElementById("txtLogradouro").disabled = true;
+                        document.getElementById("txtBairro").disabled = true;
+                        document.getElementById("txtCidade").disabled = true;
+                        document.getElementById("txtUF").disabled = true;
+                    }*/
                 }
             }
             catch(ee){
@@ -77,21 +96,30 @@ $(document).ready(function(){
         
     }); */
     
+    
     //Click do botão INCLUIR Limite
     $(document).on("click","#btnCadLimiteIncluir", function(){
         var frm = $("#frmCadLimite").serialize();
-        console.log(frm);
-        /*
-        if(validaForm() == true){
+        
+        
             $.post(BASE+"cadLimite/insert",frm).done(function(retorno){
                 alert(retorno);
-                //alert(retorno);
                 //listaUnidade();
                 //limpaForm();
             });
-        }
-        */
+        
     });
+    
+    
+    /*
+    function validaForm(){
+        
+        if(document.frmCadLimite.txtCadCEP.value=="" || document.frmCadUnidade.txtCadUnidCNES.value.length < 7){
+            alert( "CNES inválido!!!" );
+            document.frmCadUnidade.txtCadUnidCNES.focus();
+            return false;
+        }
+    }*/
     
     function preencherCombo(){
         
@@ -153,34 +181,34 @@ $(document).ready(function(){
         //Verifica se campo cep possui valor informado.
         if (cep !== "") {
 
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
-
+            //Expressão regular para validar o CEP. Metacaracteres
+            var validacep1 = /^[0-9]{8}$/;
+            
             //Valida o formato do CEP.
-            if(validacep.test(cep)) {
+            if(validacep1.test(cep)) {
+      
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('txtIBGE').value="...";
+                    document.getElementById('txtLogradouro').value="...";
+                    document.getElementById('txtBairro').value="...";
+                    document.getElementById('txtCidade').value="...";
+                    document.getElementById('txtUF').value="...";
+                    $("#lblStatus").html("Pesquisando...");
+          
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
 
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('txtIBGE').value="...";
-                document.getElementById('txtLogradouro').value="...";
-                document.getElementById('txtBairro').value="...";
-                document.getElementById('txtCidade').value="...";
-                document.getElementById('txtUF').value="...";
-                $("#lblStatus").html("Pesquisando...");
-                
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
 
-                //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
                 
             } //end if.
             else {
                 //cep é inválido.
                 alert('Formato de CEP inválido.');
-                setTimeout(function(){$("#txtCadCEP").select()}, 50);
+                setTimeout(function(){$("#txtCadCEP").select()}, 50); 
             }
         } //end if.
         else {
@@ -224,17 +252,32 @@ $(document).ready(function(){
         } //end if.
         else {
             //CEP não Encontrado.
-            alert("CEP não encontrado.");
-            limpaForm();
-            setTimeout(function(){$("#txtCadCEP").select()}, 50);
+            var resposta = confirm("CEP não encontrado!!!\n\nDeseja inserir as informações manualmente?")
+            if(resposta){
+                setTimeout(function(){$("#txtIBGE").focus()}, 50);
+                encontrou = false;
+            }else{
+                limpaForm();
+                setTimeout(function(){$("#txtCadCEP").select()}, 50);
+                encontrou = false;
+            }
         }
     }
-    
+    //MÁSCARA DE CEP
     function mascara(t, mask){
         var i = t.value.length;
         var saida = mask.substring(1,0);
         var texto = mask.substring(i);
         if (texto.substring(0,1) !== saida){
             t.value += texto.substring(0,1);
+        }
+    }
+    //APENAS NÚMEROS NO INPUT
+    function tecla(){
+        evt = window.event;
+        var tecla = evt.keyCode;
+        if(!(tecla > 47 && tecla < 58)){ 
+            alert('Pressione apenas teclas numéricas!');
+            evt.preventDefault();
         }
     }

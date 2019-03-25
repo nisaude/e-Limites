@@ -21,7 +21,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">CEP:</label>
                                                 <div class="col-sm-4">
-                                                    <input type="text" class="form-control" id="txtCadCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10"  onkeypress="mascara(this, '##.###-###')" > 
+                                                    <input type="text" class="form-control" id="txtCadCEP" name="txtCadCEP" placeholder="Insira o CEP..." maxlength="10"  onkeypress="mascara(this, '##.###-###');tecla();" > 
                                                 </div>
                                                 <div class="col-sm-1"></div>
                                                 <label class="col-sm-1 col-form-label">IBGE:</label>
@@ -112,12 +112,12 @@
                                         <!-- BOTÕES -->
                                         <br>
                                         <div class="col-sm-2"></div>
-                                        <div id="botaoCad" ng-show="cadastrando">
-                                            <button type="submit" id="btnCadLimiteIncluir" name="btnCadLimiteIncluir" class="btn btn-success"><i class="fas fa-save"></i>
+                                        <div id="botaoCad">
+                                            <button type="button" id="btnCadLimiteIncluir" name="btnCadLimiteIncluir" class="btn btn-success"><i class="fas fa-save"></i>
                                                 Incluir
                                             </button>
                                            
-                                            <button type="reset" id="btncancel" name="btnCancel" class="btn btn-danger" onclick="limpa_formulario_cep();"><i class="fas fa-times"></i>
+                                            <button type="button" id="btncancel" name="btnCancel" class="btn btn-danger" onclick="limpa_formulario_cep();"><i class="fas fa-times"></i>
                                                 Cancelar
                                             </button>
                                         </div>

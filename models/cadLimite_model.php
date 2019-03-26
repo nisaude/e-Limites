@@ -42,36 +42,39 @@ class cadLimite_model extends Model{
     }
 	
     public function insert() { //INCLUIR NOVO LIMITE
-		
-        $CEP = $_POST["txtCadCEP"];
-        $IBGE = $_POST["txtIBGE"];
-        $lograduro = $_POST["txtLogradouro"];
-        $num_inicial = $_POST["txtNumIni"];
-        $num_final = $_POST["txtNumFim"];
-        $lado = $_POST["cbbUnidade"];
-        $bairro = $_POST["txtBairro"];
-        $cidade = $_POST["txtCidade"];
-        $unidade = $_POST["unidades"];
-        $uf = $_POST["txtUF"];
-        $area = $_POST["txtArea"];
-        $micro_area = $_POST["txtMicroArea"];
+	
+        //PROTEÇÃO CONTRA INJECTION - consiste em injetar scripts maliciosos, fazendo com que a página vulnerável fique a controle do atacante
+        $POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         
-        $result= $this->db->select('select cep,logradouro from limite where cep=:par_cep and logradouro=:par_logradouro)', array("par_cep"=>$CEP, "par_logradouro"=>$logradouro));
+        $CEP = $POST["txtCadCEP"];
+        //$CEP = "'$CEP'";
+        $IBGE = $POST["txtIBGE"];
+        $logradouro = $POST["txtLogradouro"];
+        //$logradouro = "'$logradouro'";
+        $num_inicial = $POST["txtNumIni"];
+        $num_final = $POST["txtNumFim"];
+        $lado = $POST["cbbLado"];
+        $bairro = $POST["txtBairro"];
+        $cidade = $POST["txtCidade"];
+        $unidade = $POST["unidades"];
+        $uf = $POST["txtUF"];
+        $area = $POST["txtArea"];
+        $micro_area = $POST["txtMicroArea"];
+        //echo "$CEP","$IBGE","$logradouro","$num_inicial","$num_final","$lado","$bairro","$cidade","$unidade","$uf","$area","$micro_area";
         
-        echo($result);
+        $result= $this->db->select('select cep,logradouro from limite where cep=:par_cep and logradouro=:par_logradouro',array("par_cep"=>$CEP, "par_logradouro"=>$logradouro));
         
-        /*
         if(count($result)==0){
         
-            $dados=array("cep"=>$CEP,"IBGE"=>$IBGE,"logradouro"=>$lograduro,"num_inicial"=>$num_inicial,"num_final"=>$num_final,"lado"=>$lado,"bairro"=>$bairro,
+            $dados=array("cep"=>$CEP,"IBGE"=>$IBGE,"logradouro"=>$logradouro,"num_inicial"=>$num_inicial,"num_final"=>$num_final,"lado"=>$lado,"bairro"=>$bairro,
                 "cidade"=>$cidade,"unidade"=>$unidade,"uf"=>$uf,"area"=>$area,"micro_area"=>$micro_area);
 
             $this->db->insert('limite', $dados);
             echo "Dados Inseridos com Sucesso!";
        }
        else{
-           echo("Limite de CEP [$CEP] e Logradouro [$lograduro] já cadastrado!");
-       }*/
+           echo("Limite de CEP $CEP e Logradouro $logradouro já cadastrado!");
+       }
         
     }    
     

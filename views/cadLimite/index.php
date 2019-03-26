@@ -53,10 +53,10 @@
                                                 </div>
                                                 <label class="col-sm-1 col-form-label">Lado:</label>
                                                 <div class="col-sm-2">
-                                                    <select data-toggle="dropdown" class="form-control" id="cbbLado" aria-haspopup="true" aria-expanded="false">
-                                                        <option>Ambos</option>
-                                                        <option>Par</option>
-                                                        <option>Impar</option>
+                                                    <select data-toggle="dropdown" class="form-control" name="cbbLado" id="cbbLado" aria-haspopup="true" aria-expanded="false">
+                                                        <option value="Ambos">Ambos</option>
+                                                        <option value="Par">Par</option>
+                                                        <option value="Impar">Impar</option>
                                                     </select>
                                                 </div>
                                             </div>

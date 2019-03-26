@@ -104,10 +104,9 @@ $(document).ready(function(){
         
             $.post(BASE+"cadLimite/insert",frm).done(function(retorno){
                 alert(retorno);
-                //listaUnidade();
-                //limpaForm();
+                listaUnidade();
+                limpaForm();
             });
-        
     });
     
     
